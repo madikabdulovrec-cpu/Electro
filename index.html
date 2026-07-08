@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЭПИЛА — кабинет электроэпиляции в Алматы · перманентное удаление волос</title>
+<meta name="description" content="Электроэпиляция лица и тела в Алматы. Работаем там, где лазер бессилен: седые, светлые, рыжие и пушковые волосы, гормональный рост, единичные волоски. Один мастер, открытые цены, стерильные одноразовые иглы. Бесплатная консультация.">
+<meta name="theme-color" content="#2A2C27">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ЭПИЛА — кабинет электроэпиляции · медицинская точность в эстетике">
+<meta property="og:description" content="Перманентное удаление волос независимо от их цвета. Там, где лазер не работает.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --porcelain:#FFFFFF; --graphite:#2A2C27; --clay:#6B7345; --sage:#8D9270;
+  --sand:#EDEFF2; --taupe:#6D6F66; --bronze:#525A34;
+  --paper:#FFFFFF; --ink:var(--graphite);
+  --line:rgba(42,44,39,.14); --line-soft:rgba(42,44,39,.08);
+  --accent:var(--clay); --accent-deep:var(--bronze);
+  --serif:'Spectral',Georgia,'Times New Roman',serif;
+  --sans:'Golos Text','Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
+  --wrap:1200px; --pad:clamp(20px,5vw,72px);
+  --r:14px; --r-lg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--porcelain);
+  font-size:17px; line-height:1.62; font-weight:400;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  background-image:radial-gradient(1200px 600px at 82% -8%, rgba(107,115,69,.10), transparent 60%),
+                   radial-gradient(900px 500px at -6% 12%, rgba(141,146,112,.10), transparent 55%);
+  background-attachment:fixed;
+}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:400; line-height:1.06; letter-spacing:-.01em}
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block}
+::selection{background:var(--clay); color:#fff}
+
+.wrap{max-width:var(--wrap); margin:0 auto; padding-inline:var(--pad)}
+.section{padding-block:clamp(64px,9vw,132px); position:relative}
+.eyebrow{font-family:var(--sans); font-weight:600; font-size:.74rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--accent-deep); display:inline-flex; gap:.6em; align-items:center}
+.eyebrow::before{content:""; width:26px; height:1px; background:var(--accent-deep); opacity:.6}
+.h2{font-size:clamp(2rem,3.8vw,3.25rem); letter-spacing:-.02em; white-space:nowrap}
+.lead{font-size:clamp(1.05rem,1.5vw,1.28rem); color:var(--taupe); line-height:1.6; max-width:60ch}
+.mut{color:var(--taupe)}
+.serif-em{font-family:var(--serif); font-style:italic; color:var(--accent-deep)}
+.accent{color:var(--accent-deep)}
+
+/* ============================ BUTTONS ============================ */
+.btn{display:inline-flex; align-items:center; gap:.55em; font-family:var(--sans); font-weight:600;
+  font-size:.98rem; padding:.92em 1.5em; border-radius:100px; cursor:pointer; border:1px solid transparent;
+  transition:transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+  white-space:nowrap; line-height:1}
+.btn svg{width:1.05em; height:1.05em}
+.btn-primary{background:var(--clay); color:#fff}
+.btn-primary:hover{background:var(--bronze); transform:translateY(-2px)}
+.btn-ghost{border-color:var(--line); color:var(--ink); background:transparent}
+.btn-ghost:hover{border-color:var(--ink); transform:translateY(-2px)}
+.btn-light{background:var(--porcelain); color:var(--graphite)}
+.btn-light:hover{background:#fff; transform:translateY(-2px)}
+
+/* ============================ HEADER ============================ */
+header{position:fixed; inset:0 0 auto 0; z-index:60; transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease); padding-block:18px}
+header.scrolled{background:rgba(255,255,255,.86); backdrop-filter:blur(14px); box-shadow:0 1px 0 var(--line-soft); padding-block:10px}
+.nav{max-width:var(--wrap); margin:0 auto; padding-inline:var(--pad); display:flex; align-items:center; justify-content:space-between; gap:24px}
+.brand{display:flex; align-items:center; gap:11px; font-family:var(--serif); font-size:1.32rem; letter-spacing:.02em}
+.brand .mark{width:32px; height:32px; flex:none}
+.brand b{font-weight:500}
+.brand span{font-family:var(--sans); font-size:.6rem; letter-spacing:.24em; text-transform:uppercase; color:var(--taupe); display:block; margin-top:2px}
+.nav-links{display:flex; align-items:center; gap:30px; font-size:.92rem; font-weight:500}
+.nav-links a{color:var(--taupe); transition:color .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{display:flex; align-items:center; gap:14px}
+.burger{display:none; width:44px; height:44px; border:1px solid var(--line); border-radius:12px; background:transparent; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px}
+.burger span{width:18px; height:1.6px; background:var(--ink); transition:.3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+
+/* ============================ HERO ============================ */
+.hero{padding-top:clamp(122px,17vh,186px); padding-bottom:clamp(48px,6vw,92px); position:relative}
+.hero-title{font-family:var(--serif); font-weight:400; line-height:1; letter-spacing:-.035em;
+  font-size:clamp(2.3rem,7vw,5.6rem); white-space:nowrap; margin:18px 0 0}
+.hero-title em{font-style:italic; color:var(--accent-deep)}
+.hero-sub{font-family:var(--serif); font-style:italic; color:var(--accent-deep); white-space:nowrap;
+  font-size:clamp(1.25rem,2.4vw,2rem); line-height:1.1; margin:12px 0 0; letter-spacing:-.01em}
+.hero-rule{height:1px; background:var(--line); margin:clamp(30px,4vw,52px) 0}
+.hero-lower{display:grid; grid-template-columns:1.35fr .9fr; gap:clamp(32px,5vw,72px); align-items:start}
+.hero .lead{margin:0 0 30px}
+.hero-actions{display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+.hero-note{margin-top:26px; font-size:.86rem; color:var(--taupe); display:flex; flex-wrap:wrap; gap:8px 20px}
+.hero-note b{color:var(--ink); font-weight:600}
+.hero-note span{display:inline-flex; gap:.5em; align-items:center}
+.hero-note span::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--sage)}
+
+/* hero figure — restrained, not a glossy card */
+.hero-figure{position:relative; aspect-ratio:4/5; max-height:56vh; border-radius:var(--r-lg); overflow:hidden;
+  background:var(--sand); border:1px solid var(--line)}
+.hero-figure img{width:100%; height:100%; object-fit:cover; object-position:50% 28%; display:block}
+.hero-media{display:flex; flex-direction:column; gap:14px}
+.hero-about-btn{width:100%; justify-content:center}
+
+/* ---- modal ---- */
+.modal{position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  padding:20px; opacity:0; visibility:hidden; transition:opacity .3s var(--ease), visibility .3s var(--ease)}
+.modal.open{opacity:1; visibility:visible}
+.modal-backdrop{position:absolute; inset:0; background:rgba(42,44,39,.5); backdrop-filter:blur(3px)}
+.modal-card{position:relative; z-index:1; width:100%; max-width:560px; max-height:88vh; overflow:auto;
+  background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--r-lg);
+  padding:clamp(28px,4vw,44px); box-shadow:0 40px 90px -30px rgba(42,44,39,.5);
+  transform:translateY(14px) scale(.985); transition:transform .38s var(--ease)}
+.modal.open .modal-card{transform:none}
+.modal-card h2{font-family:var(--serif); font-weight:400; font-size:clamp(1.6rem,3vw,2.1rem); letter-spacing:-.02em; line-height:1.1; margin:14px 0 16px}
+.modal-card p{color:var(--taupe); margin-bottom:14px}
+.modal-card .modal-lead{color:var(--ink); font-size:1.06rem; line-height:1.6}
+.modal-card em{font-style:italic; color:var(--accent-deep)}
+.modal-card .creds{margin:22px 0 4px}
+.modal-card .sign{margin-top:18px}
+.modal-close{position:absolute; top:14px; right:14px; width:40px; height:40px; border-radius:50%;
+  border:1px solid var(--line-soft); background:var(--sand); color:var(--ink); cursor:pointer;
+  display:grid; place-items:center; transition:transform .3s var(--ease), background .25s}
+.modal-close:hover{transform:rotate(90deg)}
+.modal-close svg{width:18px; height:18px}
+body.modal-open{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.modal,.modal-card,.modal-close{transition:none} .modal-card{transform:none}}
+
+/* ============================ TRUST STRIP ============================ */
+.trust{background:var(--graphite); color:var(--porcelain)}
+.trust .wrap{display:flex; flex-wrap:wrap; gap:14px 40px; justify-content:space-between; align-items:center; padding-block:26px}
+.trust-item{display:flex; gap:12px; align-items:center; font-size:.92rem}
+.trust-item svg{width:22px; height:22px; color:var(--sage); flex:none}
+.trust-item b{font-weight:600}
+.trust-item small{display:block; color:rgba(255,255,255,.6); font-size:.78rem}
+
+/* ============================ SECTION HEADS ============================ */
+.sec-head{display:flex; flex-direction:column; gap:18px; margin-bottom:clamp(38px,5vw,64px)}
+.sec-head .lead{max-width:64ch}
+.sec-head.center{margin-inline:auto; text-align:center; align-items:center}
+
+/* bg variants */
+.bg-sand{background:var(--sand)}
+.bg-paper{background:var(--paper)}
+.bg-dark{background:var(--graphite); color:var(--porcelain)}
+.bg-dark .lead,.bg-dark .mut{color:rgba(255,255,255,.66)}
+.bg-dark .eyebrow,.bg-dark .eyebrow::before{color:var(--sage); background:var(--sage)}
+.bg-dark .eyebrow{background:none}
+.bg-sage{background:linear-gradient(160deg,#8D9270,#767B54); color:#FFFFFF}
+.bg-sage .lead{color:rgba(255,255,255,.82)}
+.bg-sage .eyebrow,.bg-sage .eyebrow::before{color:#333A22}
+.bg-sage .eyebrow{background:none}
+
+/* ============================ CARDS GRID ============================ */
+.grid{display:grid; gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--r); padding:30px 28px; box-shadow:0 1px 2px rgba(42,44,39,.03),0 14px 32px -24px rgba(42,44,39,.16);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease)}
+.card:hover{transform:translateY(-4px); box-shadow:0 30px 50px -34px rgba(42,44,39,.45); border-color:var(--line)}
+.card .ic{width:48px; height:48px; border-radius:12px; background:var(--sand); color:var(--bronze); display:grid; place-items:center; margin-bottom:18px}
+.card .ic svg{width:24px; height:24px}
+.card h3{font-size:1.32rem; margin-bottom:9px}
+.card p{font-size:.96rem; color:var(--taupe)}
+.card .tag{font-family:var(--sans); font-size:.72rem; font-weight:600; letter-spacing:.04em; color:var(--accent-deep); text-transform:uppercase}
+
+/* ============================ METHOD / TWO COL ============================ */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,5vw,72px); align-items:center}
+.split>*,.master>*,.booking-grid>*{min-width:0}
+.callout{border-left:2px solid var(--clay); padding:6px 0 6px 22px; margin:26px 0; font-family:var(--serif); font-size:1.25rem; line-height:1.4}
+.method-figure{border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/5; border:1px solid var(--line); background:var(--sand)}
+.method-figure img{width:100%; height:100%; object-fit:cover; display:block}
+.fda-badge{display:inline-flex; flex-direction:column; gap:2px; background:var(--porcelain); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:8px}
+.fda-badge b{font-family:var(--serif); font-size:1.05rem}
+.fda-badge small{color:var(--taupe); font-size:.8rem}
+
+/* ============================ COMPARE TABLE ============================ */
+.table-scroll{overflow-x:auto; border-radius:var(--r-lg); border:1px solid var(--line); -webkit-overflow-scrolling:touch}
+table.cmp{width:100%; border-collapse:collapse; min-width:680px; background:var(--paper); font-size:.94rem}
+table.cmp th,table.cmp td{padding:16px 18px; text-align:left; border-bottom:1px solid var(--line-soft)}
+table.cmp thead th{font-family:var(--sans); font-weight:600; font-size:.82rem; letter-spacing:.03em; color:var(--taupe); background:var(--sand); position:sticky; top:0}
+table.cmp tbody th{font-weight:500; color:var(--ink); width:34%}
+table.cmp .ours{background:rgba(107,115,69,.09); color:var(--graphite); font-weight:600}
+table.cmp thead .ours{background:var(--clay); color:#fff; font-family:var(--serif); font-weight:500; font-size:1rem; letter-spacing:0}
+table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
+.yes{color:#5E6B3B; font-weight:600}
+.no{color:#8B857C}
+.part{color:var(--taupe)}
+.cmp-note{font-size:.8rem; color:var(--taupe); margin-top:14px}
+
+/* ============================ SAFETY (dark) ============================ */
+.steps{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:s}
+.step{position:relative; padding-top:26px}
+.step::before{counter-increment:s; content:"0" counter(s); font-family:var(--serif); font-size:2.4rem; color:var(--clay); line-height:1; display:block; margin-bottom:14px}
+.step h4{font-size:1.12rem; margin-bottom:7px; color:inherit}
+.step p{font-size:.9rem; color:rgba(255,255,255,.62)}
+.bg-paper .step p{color:var(--taupe)}
+.bg-paper .step::before{color:var(--bronze)}
+
+.safe-list{display:grid; grid-template-columns:1fr 1fr; gap:14px 30px; margin-top:6px}
+.safe-list li{list-style:none; display:flex; gap:13px; align-items:flex-start; font-size:.98rem; color:rgba(255,255,255,.85)}
+.safe-list svg{width:22px; height:22px; color:var(--sage); flex:none; margin-top:2px}
+
+/* ============================ PRICING ============================ */
+.price-wrap{display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(24px,4vw,48px); align-items:start}
+.price-table{background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--r-lg); overflow:hidden}
+.price-row{display:flex; justify-content:space-between; gap:20px; padding:19px 26px; border-bottom:1px solid var(--line-soft); align-items:baseline}
+.price-row:last-child{border-bottom:none}
+.price-row .z{font-weight:500}
+.price-row .z small{display:block; font-weight:400; color:var(--taupe); font-size:.8rem; margin-top:2px}
+.price-row .p{font-family:var(--serif); font-size:1.15rem; white-space:nowrap; text-align:right}
+.price-row.free .p{color:#5E6B3B}
+.price-row.head{background:var(--sand); font-family:var(--sans); font-size:.76rem; letter-spacing:.05em; text-transform:uppercase; color:var(--taupe); padding-block:12px}
+
+.calc{background:var(--graphite); color:var(--porcelain); border-radius:var(--r-lg); padding:30px 28px; position:sticky; top:96px}
+.calc h3{color:var(--porcelain); font-size:1.4rem; margin-bottom:6px}
+.calc p.sub{font-size:.85rem; color:rgba(255,255,255,.6); margin-bottom:22px}
+.calc label{display:block; font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; color:var(--sage); margin:16px 0 8px; font-weight:600}
+.calc select,.calc input{width:100%; padding:13px 15px; border-radius:11px; border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.06); color:var(--porcelain); font-family:var(--sans); font-size:1rem; appearance:none}
+.calc select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%238D9270' stroke-width='1.6'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 15px center}
+.calc .range-row{display:flex; align-items:center; gap:14px}
+.calc input[type=range]{padding:0; height:4px; background:rgba(255,255,255,.16); accent-color:var(--clay); cursor:pointer}
+.calc .minv{font-family:var(--serif); font-size:1.05rem; min-width:64px; text-align:right}
+.calc-out{margin-top:24px; padding-top:22px; border-top:1px solid rgba(255,255,255,.16)}
+.calc-out .big{font-family:var(--serif); font-size:clamp(1.8rem,4vw,2.5rem); color:#fff; line-height:1.1}
+.calc-out small{display:block; color:rgba(255,255,255,.6); font-size:.82rem; margin-top:8px}
+
+/* ============================ PLACEHOLDER FRAMES (photos) ============================ */
+.ph-frame{position:relative; border-radius:var(--r); overflow:hidden; background:
+  repeating-linear-gradient(135deg,var(--sand),var(--sand) 12px,#E1E3E7 12px,#E1E3E7 24px);
+  border:1px dashed rgba(42,44,39,.28); display:grid; place-items:center; min-height:220px; text-align:center; color:var(--taupe)}
+.ph-frame .lab{background:rgba(255,255,255,.9); padding:.55em .95em; border-radius:100px; font-size:.78rem; max-width:80%}
+.results-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+.result-card img{width:100%; height:auto; display:block; border-radius:var(--r); border:1px solid var(--line)}
+.result-card .cap{font-size:.84rem; color:var(--taupe); margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
+.result-card .cap b{color:var(--ink); font-weight:600}
+.result-card .cap span{background:var(--porcelain); padding:.2em .7em; border-radius:100px; font-size:.76rem}
+
+/* ============================ MASTER ============================ */
+.master{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(28px,5vw,60px); align-items:center}
+.master .ph-frame{aspect-ratio:4/5}
+.creds{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px}
+.creds .chip{background:var(--sand); border:1px solid var(--line-soft); border-radius:100px; padding:.55em 1.05em; font-size:.85rem; display:inline-flex; gap:.5em; align-items:center}
+.creds .chip svg{width:16px; height:16px; color:var(--sage)}
+.sign{font-family:var(--serif); font-style:italic; font-size:1.5rem; color:var(--accent-deep); margin-top:22px}
+
+/* ============================ REVIEWS ============================ */
+.rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.review{background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--r); padding:28px; display:flex; flex-direction:column; gap:16px}
+.review .stars{color:var(--clay); letter-spacing:2px; font-size:.9rem}
+.review blockquote{font-family:var(--serif); font-size:1.1rem; line-height:1.5}
+.review .who{display:flex; align-items:center; gap:12px; margin-top:auto; font-size:.88rem}
+.review .av{width:38px; height:38px; border-radius:50%; background:var(--sand); display:grid; place-items:center; font-family:var(--serif); color:var(--bronze); flex:none}
+.review .who b{font-weight:600}
+.review .who small{color:var(--taupe); display:block}
+
+/* ============================ FAQ ============================ */
+.faq-list{max-width:840px; margin-inline:auto}
+details.q{border-bottom:1px solid var(--line); padding:6px 0}
+details.q summary{list-style:none; cursor:pointer; padding:22px 48px 22px 0; font-family:var(--serif); font-size:clamp(1.1rem,1.7vw,1.4rem); position:relative; transition:color .25s}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::after{content:""; position:absolute; right:6px; top:50%; width:14px; height:14px; margin-top:-7px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%236B7345' stroke-width='1.6'%3E%3Cpath d='M7 1v12M1 7h12'/%3E%3C/svg%3E") center/contain no-repeat; transition:transform .35s var(--ease)}
+details.q[open] summary::after{transform:rotate(135deg)}
+details.q summary:hover{color:var(--accent-deep)}
+details.q .a{padding:0 40px 24px 0; color:var(--taupe); font-size:1rem; max-width:72ch}
+
+/* ============================ BOOKING (dark) ============================ */
+.booking-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,64px); align-items:center}
+.contact-list{display:grid; gap:14px; margin-top:10px}
+.contact-list a,.contact-list div{display:flex; gap:15px; align-items:center; padding:16px 20px; border:1px solid rgba(255,255,255,.16); border-radius:14px; transition:border-color .3s, background .3s}
+.contact-list a:hover{border-color:var(--sage); background:rgba(255,255,255,.04)}
+.contact-list .ic{width:40px; height:40px; border-radius:10px; background:rgba(255,255,255,.08); display:grid; place-items:center; color:var(--sage); flex:none}
+.contact-list .ic svg{width:20px; height:20px}
+.contact-list b{font-weight:600; display:block}
+.contact-list small{color:rgba(255,255,255,.55); font-size:.84rem}
+.cta-panel{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.16); border-radius:var(--r-lg); padding:clamp(28px,4vw,44px)}
+.cta-panel h3{color:#fff; font-size:clamp(1.6rem,3vw,2.3rem); margin-bottom:14px}
+
+/* ============================ FOOTER ============================ */
+footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; font-size:.9rem}
+.foot-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-cols{display:flex; flex-wrap:wrap; gap:48px}
+.foot-col h5{font-family:var(--sans); font-weight:600; font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sage); margin-bottom:14px}
+.foot-col a{display:block; color:rgba(255,255,255,.7); padding:4px 0; transition:color .2s}
+.foot-col a:hover{color:#fff}
+.disclaimer{font-size:.78rem; color:rgba(255,255,255,.42); line-height:1.6; margin-top:26px; max-width:90ch}
+.foot-bottom{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:24px; font-size:.8rem; color:rgba(255,255,255,.42)}
+.foot-bottom a{color:var(--sage)}
+
+/* ============================ MOBILE CTA BAR ============================ */
+.mobile-cta{position:fixed; left:0; right:0; bottom:0; z-index:55; display:none; gap:10px; padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.92); backdrop-filter:blur(12px); border-top:1px solid var(--line)}
+.mobile-cta .btn{flex:1; justify-content:center}
+
+/* ============================ REVEAL ============================ */
+.js .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.js .reveal.in{opacity:1; transform:none}
+.js .reveal.d1{transition-delay:.08s}.js .reveal.d2{transition-delay:.16s}.js .reveal.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1!important; transform:none!important; transition:none}}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:1000px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .nav-cta .btn-ghost{display:none}
+  .hero-lower,.split,.price-wrap,.master,.booking-grid{grid-template-columns:1fr}
+  .hero-media{max-width:400px; margin:6px auto 0}
+  .g3,.results-grid,.rev-grid,.steps,.safe-list{grid-template-columns:1fr 1fr}
+  .calc{position:static}
+  .mobile-nav-open{position:fixed; inset:0; z-index:59; background:var(--porcelain); padding:96px var(--pad) 40px; display:flex; flex-direction:column; gap:8px}
+  .mobile-nav-open a{font-family:var(--serif); font-size:1.7rem; padding:12px 0; border-bottom:1px solid var(--line-soft)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .g3,.g2,.results-grid,.rev-grid,.steps,.safe-list{grid-template-columns:1fr}
+  .trust .wrap{justify-content:flex-start}
+  .mobile-cta{display:flex}
+  .hero{padding-bottom:20px}
+  footer{padding-bottom:96px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header id="hd">
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="ЭПИЛА — на главную">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="#6B7345" stroke-width="1.2"/>
+        <circle cx="16" cy="16" r="4.4" stroke="#2A2C27" stroke-width="1.2"/>
+        <path d="M16 1.2V11m0 10v9.8" stroke="#2A2C27" stroke-width="1.2"/>
+        <circle cx="16" cy="16" r="1.5" fill="#6B7345"/>
+      </svg>
+      <span style="line-height:1"><b>ЭПИЛА</b><span>электроэпиляция · Алматы</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#for-whom">Кому подходит</a>
+      <a href="#method">Метод</a>
+      <a href="#compare">Сравнение</a>
+      <a href="#pricing">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#compare">Почему не лазер</a>
+      <a class="btn btn-primary" href="#booking">Записаться</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero wrap" aria-label="Главный экран">
+  <span class="eyebrow reveal">Электроэпиляция · медицинская точность в эстетике</span>
+  <h1 class="hero-title reveal d1">Волосы, которые <em>не берёт лазер</em></h1>
+  <p class="hero-sub reveal d1">— наша специализация</p>
+
+  <div class="hero-rule reveal d2"></div>
+
+  <div class="hero-lower">
+    <div class="hero-copy reveal d2">
+      <p class="lead">Электроэпиляция разрушает зону роста фолликула независимо от цвета волоса и вашего фототипа — поэтому подходит для светлых, седых и рыжих волос, гормонального роста и деликатных зон лица. Устойчивый результат — за курс процедур; план и стоимость определяем на консультации.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#booking">Записаться на консультацию
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost" href="#pricing">Открытые цены</a>
+      </div>
+      <div class="hero-note">
+        <span><b>Одноразовые</b> стерильные иглы</span>
+        <span><b>Один</b> мастер весь курс</span>
+        <span><b>Бесплатная</b> консультация</span>
+      </div>
+    </div>
+
+    <div class="hero-media reveal d3">
+      <figure class="hero-figure">
+        <img src="master.jpg" width="1200" height="1500" alt="Кристина — мастер электроэпиляции, надевает стерильные перчатки перед процедурой">
+      </figure>
+      <button class="btn btn-ghost hero-about-btn" type="button" data-modal-open="modal-about" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><circle cx="12" cy="8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        О мастере
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TRUST STRIP ============================ -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg><div><b>Стерильность как в стоматологии</b><small>игла вскрывается при вас</small></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Цена по минутам</b><small>платите за объём работы</small></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg><div><b>Личный мастер-владелец</b><small>вас ведёт один специалист</small></div></div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h16M4 17h10"/></svg><div><b>Открытый прайс на сайте</b><small>без «уточняйте по записи»</small></div></div>
+  </div>
+</section>
+
+<!-- ============================ FOR WHOM ============================ -->
+<section class="section" id="for-whom">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Кому подходит</span>
+      <h2 class="h2">Там, где другие методы бессильны</h2>
+      <p class="lead">Лазер и фотоэпиляция «видят» только пигмент — тёмный волос на светлой коже. Электроэпиляция работает с фолликулом напрямую, поэтому решает задачи, которые им не по силам.</p>
+    </div>
+    <div class="grid g3">
+      <article class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 000 18"/></svg></div>
+        <span class="tag">Флагман</span>
+        <h3>Седые, светлые, рыжие</h3>
+        <p>Волосы без пигмента, которые лазер в принципе не видит. Метод не зависит от цвета — удаляем то, что осталось непобеждённым.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v6m0 0l-2.5 8.5a2.5 2.5 0 005 0L12 9z"/><circle cx="12" cy="3" r="1"/></svg></div>
+        <h3>Единичные волоски на лице</h3>
+        <p>Жёсткие тёмные волоски на подбородке и верхней губе. Точечно, аккуратно, с понятной ценой за минуту.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="16" r="3"/><path d="M9.5 10.5l5 3"/></svg></div>
+        <h3>Гормональный рост</h3>
+        <p>СПКЯ, гирсутизм. Убираем существующие волоски как дополнение к наблюдению у врача — честно и деликатно.</p>
+      </article>
+      <article class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h6l2-4 3 8 2-4h5"/></svg></div>
+        <h3>Доделать после лазера</h3>
+        <p>Лазер убрал массу тёмных волос — остались светлые и тонкие. Закрываем эти остатки после восстановления кожи.</p>
+      </article>
+      <article class="card reveal d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 16c2-6 14-6 16 0"/><path d="M8 16c1-3 7-3 8 0"/></svg></div>
+        <h3>Брови и межбровье</h3>
+        <p>Точная перманентная коррекция формы и единичных волос — в том числе для мужчин. Недорогой первый шаг.</p>
+      </article>
+      <article class="card reveal d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.5 5 5.5.8-4 4 .9 5.5L12 20.8 7.1 23.3 8 17.8l-4-4 5.5-.8z"/></svg></div>
+        <h3>Любой тон кожи</h3>
+        <p>Метод не опирается на контраст «тёмный волос — светлая кожа», поэтому подходит для разных фототипов и загорелой кожи.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ METHOD ============================ -->
+<section class="section bg-sand" id="method">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Как это работает</span>
+      <h2 class="h2" style="margin:18px 0 22px">Что такое электроэпиляция</h2>
+      <p class="lead">Тончайший стерильный зонд вводится вдоль волоса в фолликул и разрушает его зону роста слабым током. Мишень — сам фолликул, а не пигмент. Поэтому цвет волоса, толщина и загар здесь не имеют значения.</p>
+      <p class="callout">«Единственный метод, для которого в классификации FDA допускается формулировка <span class="serif-em">перманентное удаление волос</span>».</p>
+      <div class="fda-badge">
+        <b>Электроэпиляция → «permanent hair removal»</b>
+        <small>Лазер и IPL классифицируются лишь как «permanent hair reduction» — стойкое сокращение роста, но не гарантия полного удаления.</small>
+      </div>
+      <p class="mut" style="font-size:.86rem; margin-top:20px">Честная оговорка: устойчивый результат достигается за курс из нескольких процедур, а итог индивидуален и зависит от зоны, типа волос и гормонального фона.</p>
+    </div>
+    <figure class="method-figure reveal d1">
+      <img src="procedure.jpg" width="1200" height="1500" loading="lazy" alt="Сеанс электроэпиляции: обработка зоны тонким зондом в стерильных перчатках">
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ TYPES ============================ -->
+<section class="section" id="types">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Экспертиза</span>
+      <h2 class="h2">Три метода под ваш волос</h2>
+      <p class="lead">Не «одна кнопка на всех»: режим и тип иглы выбираются под толщину волоса, зону и чувствительность кожи.</p>
+    </div>
+    <div class="grid g3">
+      <article class="card reveal">
+        <span class="tag">Быстро</span>
+        <h3>Термолиз</h3>
+        <p>Высокочастотный ток нагревает и разрушает фолликул за доли секунды. Скоростной режим для отдельных зон.</p>
+      </article>
+      <article class="card reveal d1">
+        <span class="tag">Деликатно</span>
+        <h3>Электролиз</h3>
+        <p>Гальванический ток действует мягче за счёт химической реакции. Бережно к чувствительным участкам.</p>
+      </article>
+      <article class="card reveal d2" style="border-color:var(--clay)">
+        <span class="tag">Баланс</span>
+        <h3>Бленд</h3>
+        <p>Сочетание термолиза и электролиза — надёжность и комфорт одновременно. Оптимально для жёстких волос и чувствительной кожи.</p>
+      </article>
+    </div>
+    <p class="mut reveal" style="font-size:.9rem; margin-top:22px; text-align:center">Иглы — изолированные (меньше дискомфорт) или золочёные (для склонных к аллергии на никель). Всегда одноразовые, подбираются под толщину волоса.</p>
+  </div>
+</section>
+
+<!-- ============================ COMPARE ============================ -->
+<section class="section bg-paper" id="compare">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Честное сравнение</span>
+      <h2 class="h2">Электроэпиляция и другие методы</h2>
+      <p class="lead">Без очернения конкурентов — только факты. У каждого метода своя задача; мы честно показываем и сильные стороны, и ограничения нашего.</p>
+    </div>
+    <div class="table-scroll reveal">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Критерий</th>
+            <th class="ours">Электроэпиляция</th>
+            <th>Лазер</th>
+            <th>Фото (IPL)</th>
+            <th>Воск / шугаринг</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Результат</th><td class="ours">перманентное удаление*</td><td>сокращение роста</td><td>сокращение роста</td><td class="no">временно (недели)</td></tr>
+          <tr><th>Седые / светлые / рыжие волосы</th><td class="ours yes">да</td><td class="no">нет</td><td class="no">нет</td><td class="part">да, но временно</td></tr>
+          <tr><th>Любой тон кожи, загар</th><td class="ours yes">да</td><td class="part">с ограничениями</td><td class="part">с ограничениями</td><td class="yes">да</td></tr>
+          <tr><th>Единичные волоски, малые зоны</th><td class="ours yes">точечно</td><td class="part">избыточно</td><td class="part">избыточно</td><td class="part">да, временно</td></tr>
+          <tr><th>Гормональные волосы (СПКЯ)</th><td class="ours yes">да, как дополнение</td><td class="part">частично</td><td class="part">частично</td><td class="part">временно</td></tr>
+          <tr><th>Скорость на больших зонах</th><td class="part">медленнее — по волоску</td><td class="yes">быстро</td><td class="yes">быстро</td><td class="yes">быстро</td></tr>
+          <tr><th>Нужен курс процедур</th><td class="ours">да</td><td>да</td><td>да</td><td class="no">постоянно</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmp-note reveal">* По регуляторной классификации FDA (США) формулировка «перманентное удаление волос» допускается только для электроэпиляции. Лазер и IPL — «перманентное сокращение роста». Скорость на больших зонах — честное ограничение метода: он обрабатывает каждый волос отдельно.</p>
+  </div>
+</section>
+
+<!-- ============================ HORMONAL ============================ -->
+<section class="section bg-sage">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">Деликатная тема · СПКЯ, гирсутизм</span>
+      <h2 class="h2" style="margin:18px 0 22px; color:#fff">Гормональные волосы</h2>
+      <p class="lead">Стойкий рост волос по мужскому типу — частый спутник гормональных изменений. Метод убирает уже имеющиеся волоски независимо от их цвета и жёсткости. Спокойно, приватно, без осуждения.</p>
+    </div>
+    <div class="reveal d1">
+      <ul class="safe-list" style="grid-template-columns:1fr">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5 9-11"/></svg><span style="color:#FFFFFF">Удаляем существующие волоски гормональной природы — независимо от цвета</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5 9-11"/></svg><span style="color:#FFFFFF">Честно: процедура <b>не лечит</b> гормональное нарушение</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5 9-11"/></svg><span style="color:#FFFFFF">При сохраняющемся фоне возможны новые фолликулы — курс длиннее, нужны поддерживающие визиты</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12l5 5 9-11"/></svg><span style="color:#FFFFFF">Лучший результат — в связке с наблюдением у эндокринолога или гинеколога</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SAFETY (dark) ============================ -->
+<section class="section bg-dark" id="safety">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Безопасность</span>
+      <h2 class="h2" style="color:#fff">Видимая стерильность — не на словах</h2>
+      <p class="lead">Именно поэтому электроэпиляцию не стоит делать «на дому»: нужную чистоту даёт только оборудованный кабинет.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><h4>Игла из упаковки</h4><p>Одноразовую стерильную иглу вскрываю при вас и утилизирую после процедуры.</p></div>
+      <div class="step"><h4>Полная стерилизация</h4><p>Многоразовый инструмент проходит обработку по протоколу — как в стоматологии.</p></div>
+      <div class="step"><h4>Перчатки и антисептик</h4><p>Работа в перчатках, обработка зоны до и после, уход по завершении.</p></div>
+      <div class="step"><h4>Чистый кабинет</h4><p>Поверхности обрабатываются после каждого клиента. Санитарное заключение на кабинет.</p></div>
+    </div>
+    <p class="mut reveal" style="font-size:.88rem; margin-top:32px; max-width:80ch">Как любая косметологическая процедура, электроэпиляция может сопровождаться временными реакциями — лёгким покраснением, небольшой отёчностью, реже раздражением, — которые обычно проходят самостоятельно. Возможные противопоказания обсуждаем до начала.</p>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Прозрачные цены</span>
+      <h2 class="h2">Оплата по минутам работы</h2>
+      <p class="lead">Двух одинаковых клиентов не бывает: время зависит от густоты и жёсткости волос. Поэтому цена считается по минутам, а на курс её можно зафиксировать.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price-table reveal">
+        <div class="price-row head"><span>Услуга</span><span>Ориентир ₸</span></div>
+        <div class="price-row free"><span class="z">Консультация и диагностика<small>оценка случая и подбор плана</small></span><span class="p">бесплатно</span></div>
+        <div class="price-row"><span class="z">Зоны лица<small>верхняя губа, подбородок · за минуту</small></span><span class="p">300–400 ₸</span></div>
+        <div class="price-row"><span class="z">Зоны тела<small>за минуту</small></span><span class="p">200–300 ₸</span></div>
+        <div class="price-row"><span class="z">Единичные волоски<small>седые/светлые, после лазера · за штуку</small></span><span class="p">50–200 ₸</span></div>
+        <div class="price-row"><span class="z">Час работы мастера<small>в зависимости от зоны</small></span><span class="p">16 000–24 000 ₸</span></div>
+        <div class="price-row"><span class="z">Минимальный визит<small>15 минут</small></span><span class="p">от 4 500 ₸</span></div>
+        <div class="price-row"><span class="z">Курс с фиксацией цены<small>по итогам диагностики</small></span><span class="p">индивидуально</span></div>
+      </div>
+
+      <div class="calc reveal d1" aria-label="Калькулятор ориентировочной стоимости">
+        <h3>Прикинуть стоимость</h3>
+        <p class="sub">Ориентир за один визит. Точную стоимость назову на консультации.</p>
+        <label for="zone">Зона</label>
+        <select id="zone">
+          <option value="face" data-lo="300" data-hi="400">Лицо (губа, подбородок)</option>
+          <option value="body" data-lo="200" data-hi="300">Тело</option>
+        </select>
+        <label for="mins">Длительность визита — <span id="minsLabel">30</span> мин</label>
+        <div class="range-row">
+          <input type="range" id="mins" min="15" max="120" step="5" value="30">
+        </div>
+        <div class="calc-out">
+          <div class="big" id="calcResult">9 000 – 12 000 ₸</div>
+          <small id="calcHint">≈ за визит 30 мин · минимум — 15 мин от 4 500 ₸</small>
+        </div>
+      </div>
+    </div>
+    <p class="cmp-note reveal">Ориентиры даны по рынку Алматы и подлежат финальной настройке под себестоимость и загрузку кабинета. Итоговая стоимость зависит от густоты волос и считается по фактическому времени.</p>
+  </div>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section class="section bg-sand" id="results">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Результаты</span>
+      <h2 class="h2">До и после — только реальные кейсы</h2>
+      <p class="lead">Настоящие фото клиентов с письменного согласия, с честным контекстом: зона, число сеансов, срок. Без ретуши и стоковых картинок.</p>
+    </div>
+    <div class="results-grid">
+      <figure class="result-card reveal">
+        <img src="result1.jpg" width="1570" height="1300" loading="lazy" alt="Электроэпиляция — до и после курса, реальный результат">
+        <figcaption class="cap"><b>[зона]</b><span>[N] сеансов</span></figcaption>
+      </figure>
+      <figure class="result-card reveal d1">
+        <img src="result2.jpg" width="1570" height="1300" loading="lazy" alt="Электроэпиляция — до и после курса, реальный результат">
+        <figcaption class="cap"><b>[зона]</b><span>[N] сеансов</span></figcaption>
+      </figure>
+      <figure class="result-card reveal d2">
+        <img src="result3.jpg" width="1570" height="1300" loading="lazy" alt="Электроэпиляция — до и после курса, реальный результат">
+        <figcaption class="cap"><b>[зона]</b><span>[N] сеансов</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2 class="h2" style="max-width:none">Отвечаю честно — до записи</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details class="q" open><summary>Правда ли, что электроэпиляция удаляет волосы навсегда?</summary><div class="a">Электроэпиляция — единственный метод, для которого в классификации FDA (США) допускается формулировка «перманентное удаление волос», потому что разрушается сам фолликул. Обработанные волоски не возвращаются. Лазер и фотоэпиляцию FDA относит к «перманентному сокращению роста» — это стойкое уменьшение, но не гарантия полного удаления. Важно: устойчивый результат достигается за курс из нескольких процедур, а при гормональных причинах со временем могут активироваться новые фолликулы. Итог индивидуален и зависит от зоны, типа волос и графика сеансов.</div></details>
+      <details class="q"><summary>Это больно?</summary><div class="a">Ощущения есть — мы этого не скрываем. Поэтому процедуру проводим с обезболиванием: анестезирующий крем наносится заранее (примерно за час), используются изолированные иглы, а мощность настраивается под вашу чувствительность. С обезболиванием большинство клиентов переносят процедуру комфортно. Мы не обещаем «совсем не больно» — мы делаем дискомфорт управляемым.</div></details>
+      <details class="q"><summary>Сколько нужно сеансов и как долго идёт курс?</summary><div class="a">Метод обрабатывает каждый волос отдельно и наиболее эффективен в фазе активного роста, а волосы в зоне всегда находятся в разных фазах. Поэтому нужен курс сеансов, разнесённых во времени. Точное количество и частоту определяем на консультации — они зависят от зоны, густоты волос и гормонального фона.</div></details>
+      <details class="q"><summary>Подходит ли метод при СПКЯ и гормональных волосах?</summary><div class="a">Да, метод убирает уже имеющиеся волоски независимо от их природы и цвета. Но будем честны: электроэпиляция не лечит само гормональное нарушение. При сохраняющемся фоне организм может «пробуждать» новые фолликулы, поэтому курс обычно длиннее. Лучший результат достигается в сочетании с наблюдением у эндокринолога или гинеколога.</div></details>
+      <details class="q"><summary>Чем отличается от лазера и можно ли делать после лазера?</summary><div class="a">Лазер и фотоэпиляция воздействуют на пигмент волоса и наиболее эффективны на тёмных волосах и светлой коже; на светлых, седых и рыжих волосах они малоэффективны. Электроэпиляция разрушает зону роста фолликула независимо от цвета волоса, поэтому логично «доделывает» остаточные светлые и тонкие волоски после лазерного курса. Начинать электроэпиляцию после лазера рекомендуется после полного восстановления кожи.</div></details>
+      <details class="q"><summary>Безопасно ли это? Как со стерильностью?</summary><div class="a">Это один из наиболее изученных методов удаления волос. Мы работаем только одноразовыми стерильными иглами — упаковка вскрывается при вас, а игла утилизируется после процедуры; многоразовый инструмент проходит полную стерилизацию, кабинет обрабатывается после каждого клиента. Как любая косметологическая процедура, метод может сопровождаться временными реакциями (покраснение, лёгкий отёк), которые обычно проходят самостоятельно. Противопоказания обсуждаем до начала.</div></details>
+      <details class="q"><summary>Сколько это стоит?</summary><div class="a">Стоимость считается по минутам, отдельно для зон лица и тела, плюс минимальный визит — так вы платите ровно за объём работы. На сайте есть ориентиры и калькулятор, а на бесплатной консультации я оценю ваш случай и назову реалистичную стоимость и объём. На курс цену можно зафиксировать, чтобы бюджет был понятен заранее.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BOOKING ============================ -->
+<section class="section bg-dark" id="booking">
+  <div class="wrap booking-grid">
+    <div class="reveal">
+      <span class="eyebrow">Запись</span>
+      <h2 class="h2" style="color:#fff; margin:18px 0 20px">Начните с консультации</h2>
+      <p class="lead">Оценю ваш случай, честно скажу объём, сроки и стоимость. Без давления — решение за вами.</p>
+      <div class="contact-list">
+        <a href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию%20по%20электроэпиляции" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg></span>
+          <span><b>WhatsApp</b><small>+7 700 000-00-00 · ответ в рабочие часы</small></span>
+        </a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
+          <span><b>Instagram</b><small>@epila.almaty · примеры работ</small></span>
+        </a>
+        <a href="https://2gis.kz/" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg></span>
+          <span><b>2ГИС · адрес</b><small>[улица, дом], Алматы · пн–сб 10:00–19:00</small></span>
+        </a>
+      </div>
+    </div>
+    <div class="cta-panel reveal d1">
+      <h3>Записаться на консультацию</h3>
+      <p class="mut" style="margin-bottom:22px">Онлайн-запись со свободными слотами удобно подключить через zapis.kz, YCLIENTS или DIKIDI — виджет встанет прямо сюда.</p>
+      <a class="btn btn-primary" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-bottom:12px">Написать в WhatsApp</a>
+      <a class="btn btn-light" href="tel:+77000000000" style="width:100%; justify-content:center">Позвонить: +7 700 000-00-00</a>
+      <p style="font-size:.78rem; color:rgba(255,255,255,.5); margin-top:18px; text-align:center">Обычно отвечаю в течение рабочего дня</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div style="max-width:320px">
+        <a class="brand" href="#top" style="color:#FFFFFF">
+          <svg class="mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#6B7345" stroke-width="1.2"/><circle cx="16" cy="16" r="4.4" stroke="#8D9270" stroke-width="1.2"/><path d="M16 1.2V11m0 10v9.8" stroke="#8D9270" stroke-width="1.2"/><circle cx="16" cy="16" r="1.5" fill="#6B7345"/></svg>
+          <span style="line-height:1"><b style="color:#FFFFFF">ЭПИЛА</b><span>электроэпиляция · Алматы</span></span>
+        </a>
+        <p style="margin-top:16px; font-size:.86rem; color:rgba(255,255,255,.5)">Кабинет электроэпиляции. Перманентное удаление волос независимо от их цвета — там, где лазер бессилен.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h5>Разделы</h5>
+          <a href="#for-whom">Кому подходит</a><a href="#method">Метод</a><a href="#compare">Сравнение</a><a href="#pricing">Цены</a><a href="#faq">Вопросы</a>
+        </div>
+        <div class="foot-col"><h5>Услуги</h5>
+          <a href="#for-whom">Лицо · губа · подбородок</a><a href="#for-whom">Седые и светлые волосы</a><a href="#for-whom">После лазера</a><a href="#for-whom">СПКЯ / гирсутизм</a>
+        </div>
+        <div class="foot-col"><h5>Контакты</h5>
+          <a href="https://wa.me/77000000000" target="_blank" rel="noopener">WhatsApp</a><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://2gis.kz/" target="_blank" rel="noopener">2ГИС</a><a href="tel:+77000000000">+7 700 000-00-00</a>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Информация на сайте носит справочный характер и не заменяет очную консультацию специалиста. Электроэпиляция — косметологическая процедура; результат, количество сеансов и переносимость индивидуальны и зависят от типа волос, зоны и особенностей организма. Метод не является лечением гормональных и иных заболеваний. Возможны противопоказания — необходима консультация. Формулировки о «перманентном удалении» приведены в соответствии с регуляторной классификацией FDA (США); лазер и IPL классифицируются как «перманентное сокращение роста».</p>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> ЭПИЛА · Алматы. Все данные (адрес, телефон, цены) — placeholder, замените на свои.</span>
+      <span>Дизайн-макет · <a href="#top">наверх ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ MOBILE CTA ============================ -->
+<div class="mobile-cta">
+  <a class="btn btn-ghost" href="tel:+77000000000" style="flex:none; padding-inline:1.1em" aria-label="Позвонить">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8 7 15 15 15l1-4-5-2-2 2c-2-1-4-3-5-5l2-2-2-5z"/></svg>
+  </a>
+  <a class="btn btn-primary" href="#booking">Бесплатная консультация</a>
+</div>
+
+<!-- ============================ MODAL: О мастере ============================ -->
+<div class="modal" id="modal-about" role="presentation">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="about-title">
+    <button class="modal-close" type="button" data-modal-close aria-label="Закрыть окно">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <span class="eyebrow">О мастере</span>
+    <h2 id="about-title">Меня зовут Кристина</h2>
+    <p class="modal-lead">Я мастер электроэпиляции. В сфере удаления волос я работаю с 2016 года и за это время успела поработать с разными технологиями. Благодаря этому я хорошо понимаю, что у каждого метода есть свои плюсы и минусы, — но только электроэпиляция удаляет волосы <em>навсегда</em>.</p>
+    <p>У меня медицинское и косметологическое образование и опыт, многое из которого я перенесла в свою работу.</p>
+    <p>Для меня всегда на первом месте качество, безопасность и комфорт клиента. Больше всего в электроэпиляции мне нравится то, что это гарантированный результат без всяких «но»: ты действительно видишь результат своей работы, а клиент — результат, который остаётся с ним навсегда.</p>
+    <div class="creds">
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg>Опыт с 2016 года</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.5 5 5.5.8-4 4 .9 5.5L12 20l-4.9 2.6.9-5.5-4-4 5.5-.8z"/></svg>Медицинское и косметологическое образование</span>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>Санитарное заключение (СЭЗ)</span>
+    </div>
+    <p class="sign">— Кристина</p>
+  </div>
+</div>
+
+<!-- ============================ JSON-LD ============================ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"ЭПИЛА — кабинет электроэпиляции","description":"Электроэпиляция лица и тела в Алматы: перманентное удаление волос независимо от их цвета.","areaServed":"Алматы","priceRange":"₸₸","address":{"@type":"PostalAddress","addressLocality":"Алматы","addressCountry":"KZ","streetAddress":"[улица, дом]"},"telephone":"+7-700-000-00-00","openingHours":"Mo-Sa 10:00-19:00","makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Электроэпиляция"}}}
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var doc=document, root=doc.documentElement;
+
+  /* header on scroll */
+  var hd=doc.getElementById('hd');
+  function onScroll(){ hd.classList.toggle('scrolled', window.scrollY>12); }
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+
+  /* mobile nav */
+  var burger=doc.getElementById('burger'), menu=null;
+  var links=[['#for-whom','Кому подходит'],['#method','Метод'],['#compare','Сравнение'],['#pricing','Цены'],['#faq','Вопросы'],['#booking','Записаться']];
+  burger.addEventListener('click', function(){
+    var open=burger.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    if(open){
+      menu=doc.createElement('div'); menu.className='mobile-nav-open';
+      links.forEach(function(l){ var a=doc.createElement('a'); a.href=l[0]; a.textContent=l[1]; a.onclick=close; menu.appendChild(a); });
+      doc.body.appendChild(menu);
+    } else close();
+  });
+  function close(){ burger.classList.remove('open'); burger.setAttribute('aria-expanded',false); if(menu){menu.remove(); menu=null;} }
+
+  /* reveal on scroll — robust: scroll+rAF, works even where IntersectionObserver is flaky */
+  var revs=[].slice.call(doc.querySelectorAll('.reveal')), ticking=false;
+  function reveal(){
+    var vh=window.innerHeight||720;
+    revs=revs.filter(function(el){
+      if(el.getBoundingClientRect().top < vh*0.9){ el.classList.add('in'); return false; }
+      return true;
+    });
+    if(!revs.length){ removeEventListener('scroll',onS); removeEventListener('resize',reveal); }
+    ticking=false;
+  }
+  function onS(){ if(!ticking){ ticking=true; requestAnimationFrame(reveal); } }
+  reveal();
+  addEventListener('scroll', onS, {passive:true});
+  addEventListener('resize', reveal);
+  /* safety net — never leave content hidden if scroll never happens */
+  setTimeout(function(){ revs.forEach(function(el){ el.classList.add('in'); }); }, 3000);
+
+  /* price calculator */
+  var zone=doc.getElementById('zone'), mins=doc.getElementById('mins'),
+      minsLabel=doc.getElementById('minsLabel'), out=doc.getElementById('calcResult'), hint=doc.getElementById('calcHint');
+  function fmt(n){ return Math.round(n/100)*100 |0; }
+  function money(n){ return n.toLocaleString('ru-RU'); }
+  function calc(){
+    var o=zone.options[zone.selectedIndex], lo=+o.getAttribute('data-lo'), hi=+o.getAttribute('data-hi'), m=+mins.value;
+    minsLabel.textContent=m;
+    var low=fmt(lo*m), high=fmt(hi*m);
+    var MINV=4500; if(low<MINV){low=MINV;} if(high<MINV){high=MINV;}
+    out.textContent=money(low)+' – '+money(high)+' ₸';
+    hint.textContent='≈ за визит '+m+' мин · минимум 15 мин от 4 500 ₸';
+  }
+  if(zone&&mins){ zone.addEventListener('change',calc); mins.addEventListener('input',calc); calc(); }
+
+  /* keep every section heading on a single line — shrink font to fit, never overflow */
+  function fitHeadings(){
+    var hs=doc.querySelectorAll('.h2, .hero-title');
+    for(var i=0;i<hs.length;i++){
+      var h=hs[i];
+      h.style.whiteSpace='nowrap'; h.style.fontSize='';
+      var avail=h.clientWidth, full=h.scrollWidth;
+      if(full>avail+1 && avail>0){
+        var cur=parseFloat(getComputedStyle(h).fontSize);
+        var scaled=cur*avail/full;
+        if(scaled<16){ h.style.whiteSpace='normal'; h.style.fontSize=''; }
+        else{ h.style.fontSize=scaled.toFixed(1)+'px'; }
+      }
+    }
+  }
+  fitHeadings();
+  if(doc.fonts&&doc.fonts.ready){ doc.fonts.ready.then(fitHeadings); }
+  setTimeout(fitHeadings,600);
+  var rt; addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(fitHeadings,150); });
+
+  /* modal (О мастере) */
+  var lastFocus=null;
+  function openModal(m){
+    lastFocus=doc.activeElement;
+    m.classList.add('open'); doc.body.classList.add('modal-open');
+    var c=m.querySelector('.modal-close'); if(c) setTimeout(function(){ c.focus(); }, 60);
+  }
+  function closeModal(m){
+    m.classList.remove('open'); doc.body.classList.remove('modal-open');
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  [].forEach.call(doc.querySelectorAll('[data-modal-open]'), function(btn){
+    btn.addEventListener('click', function(){ var m=doc.getElementById(btn.getAttribute('data-modal-open')); if(m) openModal(m); });
+  });
+  [].forEach.call(doc.querySelectorAll('.modal'), function(m){
+    [].forEach.call(m.querySelectorAll('[data-modal-close]'), function(x){ x.addEventListener('click', function(){ closeModal(m); }); });
+  });
+  addEventListener('keydown', function(e){ if(e.key==='Escape'){ var o=doc.querySelector('.modal.open'); if(o) closeModal(o); } });
+
+  /* year */
+  var yr=doc.getElementById('yr'); if(yr) yr.textContent=(new Date()).getFullYear();
+
+  /* smooth-close menu on anchor click already handled; ensure reduced motion respects */
+})();
+</script>
+</body>
+</html>
