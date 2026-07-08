@@ -239,7 +239,19 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
   border:1px dashed rgba(42,44,39,.28); display:grid; place-items:center; min-height:220px; text-align:center; color:var(--taupe)}
 .ph-frame .lab{background:rgba(255,255,255,.9); padding:.55em .95em; border-radius:100px; font-size:.78rem; max-width:80%}
 .results-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-.result-card img{width:100%; height:auto; display:block; border-radius:var(--r); border:1px solid var(--line)}
+.result-card img{width:100%; height:auto; display:block; border-radius:var(--r); border:1px solid var(--line); cursor:zoom-in; transition:filter .25s var(--ease)}
+.result-card img:hover{filter:brightness(1.03)}
+
+/* ---- lightbox (увеличение фото до/после) ---- */
+.lightbox{position:fixed; inset:0; z-index:110; display:flex; align-items:center; justify-content:center; padding:24px;
+  background:rgba(24,26,22,.86); backdrop-filter:blur(4px); opacity:0; visibility:hidden;
+  transition:opacity .3s var(--ease), visibility .3s var(--ease); cursor:zoom-out}
+.lightbox.open{opacity:1; visibility:visible}
+.lightbox img{max-width:94vw; max-height:90vh; border-radius:10px; box-shadow:0 30px 90px -20px rgba(0,0,0,.6);
+  transform:scale(.96); transition:transform .34s var(--ease)}
+.lightbox.open img{transform:none}
+.lb-close{position:fixed; top:18px; right:18px; z-index:2}
+@media (prefers-reduced-motion:reduce){.lightbox,.lightbox img{transition:none} .lightbox img{transform:none}}
 .result-card .cap{font-size:.84rem; color:var(--taupe); margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
 .result-card .cap b{color:var(--ink); font-weight:600}
 .result-card .cap span{background:var(--porcelain); padding:.2em .7em; border-radius:100px; font-size:.76rem}
@@ -749,6 +761,14 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   </div>
 </div>
 
+<!-- ============================ LIGHTBOX ============================ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="modal-close lb-close" type="button" aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <img class="lb-img" src="" alt="Электроэпиляция — до и после, увеличенное фото">
+</div>
+
 <!-- ============================ JSON-LD ============================ -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"ЭПИЛА — кабинет электроэпиляции","description":"Электроэпиляция лица и тела в Алматы: перманентное удаление волос независимо от их цвета.","areaServed":"Алматы","priceRange":"₸₸","address":{"@type":"PostalAddress","addressLocality":"Алматы","addressCountry":"KZ","streetAddress":"[улица, дом]"},"telephone":"+7-700-000-00-00","openingHours":"Mo-Sa 10:00-19:00","makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Электроэпиляция"}}}
@@ -849,6 +869,21 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     [].forEach.call(m.querySelectorAll('[data-modal-close]'), function(x){ x.addEventListener('click', function(){ closeModal(m); }); });
   });
   addEventListener('keydown', function(e){ if(e.key==='Escape'){ var o=doc.querySelector('.modal.open'); if(o) closeModal(o); } });
+
+  /* lightbox — увеличение фото «до/после» */
+  var lb=doc.getElementById('lightbox');
+  if(lb){
+    var lbImg=lb.querySelector('.lb-img');
+    function openLb(src, alt){ lbImg.src=src; lbImg.alt=alt||'Электроэпиляция — до и после'; lb.classList.add('open'); doc.body.classList.add('modal-open'); }
+    function closeLb(){ lb.classList.remove('open'); doc.body.classList.remove('modal-open'); }
+    [].forEach.call(doc.querySelectorAll('.result-card img'), function(im){
+      im.setAttribute('tabindex','0'); im.setAttribute('role','button'); im.setAttribute('aria-label','Открыть фото до и после крупно');
+      im.addEventListener('click', function(){ openLb(im.currentSrc||im.src, im.alt); });
+      im.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(im.currentSrc||im.src, im.alt); } });
+    });
+    lb.addEventListener('click', closeLb);
+    addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
+  }
 
   /* year */
   var yr=doc.getElementById('yr'); if(yr) yr.textContent=(new Date()).getFullYear();
