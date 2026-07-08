@@ -218,6 +218,22 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
 .price-row .p{font-family:var(--serif); font-size:1.15rem; white-space:nowrap; text-align:right}
 .price-row.free .p{color:#5E6B3B}
 .price-row.head{background:var(--sand); font-family:var(--sans); font-size:.76rem; letter-spacing:.05em; text-transform:uppercase; color:var(--taupe); padding-block:12px}
+.price-cap{font-size:.82rem; color:var(--taupe); margin-top:12px; line-height:1.5}
+
+/* абонементы */
+.subs{margin-top:clamp(30px,4vw,48px)}
+.subs-head{display:flex; align-items:baseline; gap:8px 16px; flex-wrap:wrap; margin-bottom:18px}
+.subs-head h3{font-family:var(--serif); font-size:clamp(1.5rem,2.6vw,2rem); letter-spacing:-.02em}
+.subs-head span{font-size:.85rem; color:var(--taupe)}
+.subs-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.sub-card{background:var(--paper); border:1px solid var(--line-soft); border-radius:var(--r-lg); padding:26px 28px}
+.sub-card.best{border-color:var(--clay); box-shadow:0 22px 55px -34px rgba(42,44,39,.45)}
+.sub-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px}
+.sub-h{font-family:var(--serif); font-size:1.5rem}
+.sub-old{color:var(--taupe); text-decoration:line-through; font-size:.95rem}
+.sub-price{font-family:var(--serif); font-size:clamp(1.7rem,3vw,2.3rem); color:var(--accent-deep); margin:10px 0 8px; display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.sub-badge{font-family:var(--sans); font-size:.72rem; font-weight:700; letter-spacing:.03em; color:#fff; background:var(--clay); padding:.35em .75em; border-radius:100px}
+.sub-note{font-size:.85rem; color:var(--taupe)}
 
 .calc{background:var(--graphite); color:var(--porcelain); border-radius:var(--r-lg); padding:30px 28px; position:sticky; top:96px}
 .calc h3{color:var(--porcelain); font-size:1.4rem; margin-bottom:6px}
@@ -333,7 +349,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
 }
 @media (max-width:640px){
   body{font-size:16px}
-  .g3,.g2,.results-grid,.rev-grid,.steps,.safe-list{grid-template-columns:1fr}
+  .g3,.g2,.results-grid,.rev-grid,.steps,.safe-list,.subs-grid{grid-template-columns:1fr}
   .trust .wrap{justify-content:flex-start}
   .mobile-cta{display:flex}
   .hero{padding-bottom:20px}
@@ -587,39 +603,65 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     <div class="sec-head reveal">
       <span class="eyebrow">Прозрачные цены</span>
       <h2 class="h2">Оплата по минутам работы</h2>
-      <p class="lead">Двух одинаковых клиентов не бывает: время зависит от густоты и жёсткости волос. Поэтому цена считается по минутам, а на курс её можно зафиксировать.</p>
+      <p class="lead">Двух одинаковых клиентов не бывает: время зависит от густоты волос. Поэтому цена считается по минутам. Минимальное время приёма — 30 минут.</p>
     </div>
     <div class="price-wrap">
-      <div class="price-table reveal">
-        <div class="price-row head"><span>Услуга</span><span>Ориентир ₸</span></div>
-        <div class="price-row free"><span class="z">Консультация и диагностика<small>оценка случая и подбор плана</small></span><span class="p">бесплатно</span></div>
-        <div class="price-row"><span class="z">Зоны лица<small>верхняя губа, подбородок · за минуту</small></span><span class="p">300–400 ₸</span></div>
-        <div class="price-row"><span class="z">Зоны тела<small>за минуту</small></span><span class="p">200–300 ₸</span></div>
-        <div class="price-row"><span class="z">Единичные волоски<small>седые/светлые, после лазера · за штуку</small></span><span class="p">50–200 ₸</span></div>
-        <div class="price-row"><span class="z">Час работы мастера<small>в зависимости от зоны</small></span><span class="p">16 000–24 000 ₸</span></div>
-        <div class="price-row"><span class="z">Минимальный визит<small>15 минут</small></span><span class="p">от 4 500 ₸</span></div>
-        <div class="price-row"><span class="z">Курс с фиксацией цены<small>по итогам диагностики</small></span><span class="p">индивидуально</span></div>
+      <div class="reveal">
+        <div class="price-table">
+          <div class="price-row head"><span>Примерное время сеанса</span><span>≈ мин</span></div>
+          <div class="price-row free"><span class="z">Консультация и диагностика<small>оценка случая и подбор плана</small></span><span class="p">бесплатно</span></div>
+          <div class="price-row"><span class="z">Лицо, усики<small>верхняя губа, подбородок</small></span><span class="p">30–60</span></div>
+          <div class="price-row"><span class="z">Подмышки</span><span class="p">60–120</span></div>
+          <div class="price-row"><span class="z">Линия живота, ареолы</span><span class="p">30</span></div>
+          <div class="price-row"><span class="z">Бикини классика</span><span class="p">60–120</span></div>
+          <div class="price-row"><span class="z">Бикини глубокое</span><span class="p">180–300</span></div>
+          <div class="price-row"><span class="z">Голени</span><span class="p">180–240</span></div>
+          <div class="price-row"><span class="z">Руки</span><span class="p">180–240</span></div>
+        </div>
+        <p class="price-cap">Ориентир при обильном росте волос — например, после бритья. Точное время назову на консультации.</p>
       </div>
 
       <div class="calc reveal d1" aria-label="Калькулятор ориентировочной стоимости">
         <h3>Прикинуть стоимость</h3>
-        <p class="sub">Ориентир за один визит. Точную стоимость назову на консультации.</p>
+        <p class="sub">400 ₸ за минуту работы. Выберите зону — подставится примерное время, ползунком можно уточнить.</p>
         <label for="zone">Зона</label>
         <select id="zone">
-          <option value="face" data-lo="300" data-hi="400">Лицо (губа, подбородок)</option>
-          <option value="body" data-lo="200" data-hi="300">Тело</option>
+          <option value="45">Лицо, усики</option>
+          <option value="90">Подмышки</option>
+          <option value="30">Линия живота, ареолы</option>
+          <option value="90">Бикини классика</option>
+          <option value="240">Бикини глубокое</option>
+          <option value="210">Голени</option>
+          <option value="210">Руки</option>
         </select>
-        <label for="mins">Длительность визита — <span id="minsLabel">30</span> мин</label>
+        <label for="mins">Длительность визита — <span id="minsLabel">45</span> мин</label>
         <div class="range-row">
-          <input type="range" id="mins" min="15" max="120" step="5" value="30">
+          <input type="range" id="mins" min="30" max="300" step="5" value="45">
         </div>
         <div class="calc-out">
-          <div class="big" id="calcResult">9 000 – 12 000 ₸</div>
-          <small id="calcHint">≈ за визит 30 мин · минимум — 15 мин от 4 500 ₸</small>
+          <div class="big" id="calcResult">18 000 ₸</div>
+          <small id="calcHint">≈ за визит 45 мин · 400 ₸/мин · минимум 30 минут</small>
         </div>
       </div>
     </div>
-    <p class="cmp-note reveal">Ориентиры даны по рынку Алматы и подлежат финальной настройке под себестоимость и загрузку кабинета. Итоговая стоимость зависит от густоты волос и считается по фактическому времени.</p>
+
+    <div class="subs reveal">
+      <div class="subs-head"><h3>Абонементы</h3><span>срок действия — 2 месяца · выгоднее поминутной оплаты</span></div>
+      <div class="subs-grid">
+        <div class="sub-card">
+          <div class="sub-top"><span class="sub-h">5 часов</span><span class="sub-old">120 000 ₸</span></div>
+          <div class="sub-price">111 600 ₸ <span class="sub-badge">−7%</span></div>
+          <div class="sub-note">≈ 372 ₸ за минуту · 5 ч × 24 000 ₸</div>
+        </div>
+        <div class="sub-card best">
+          <div class="sub-top"><span class="sub-h">10 часов</span><span class="sub-old">240 000 ₸</span></div>
+          <div class="sub-price">201 600 ₸ <span class="sub-badge">−16%</span></div>
+          <div class="sub-note">≈ 336 ₸ за минуту · 10 ч × 24 000 ₸ · максимальная выгода</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cmp-note reveal">Итоговая стоимость зависит от густоты волос и считается по фактическому времени. На бесплатной консультации назову реалистичный объём, сроки и стоимость.</p>
   </div>
 </section>
 
@@ -816,20 +858,22 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   /* safety net — never leave content hidden if scroll never happens */
   setTimeout(function(){ revs.forEach(function(el){ el.classList.add('in'); }); }, 3000);
 
-  /* price calculator */
+  /* price calculator — 400 ₸/мин, минимум 30 минут */
   var zone=doc.getElementById('zone'), mins=doc.getElementById('mins'),
       minsLabel=doc.getElementById('minsLabel'), out=doc.getElementById('calcResult'), hint=doc.getElementById('calcHint');
-  function fmt(n){ return Math.round(n/100)*100 |0; }
+  var RATE=400;
   function money(n){ return n.toLocaleString('ru-RU'); }
   function calc(){
-    var o=zone.options[zone.selectedIndex], lo=+o.getAttribute('data-lo'), hi=+o.getAttribute('data-hi'), m=+mins.value;
+    var m=+mins.value;
     minsLabel.textContent=m;
-    var low=fmt(lo*m), high=fmt(hi*m);
-    var MINV=4500; if(low<MINV){low=MINV;} if(high<MINV){high=MINV;}
-    out.textContent=money(low)+' – '+money(high)+' ₸';
-    hint.textContent='≈ за визит '+m+' мин · минимум 15 мин от 4 500 ₸';
+    out.textContent=money(m*RATE)+' ₸';
+    hint.textContent='≈ за визит '+m+' мин · '+RATE+' ₸/мин · минимум 30 минут';
   }
-  if(zone&&mins){ zone.addEventListener('change',calc); mins.addEventListener('input',calc); calc(); }
+  if(zone&&mins){
+    zone.addEventListener('change', function(){ mins.value=zone.value; calc(); });
+    mins.addEventListener('input', calc);
+    calc();
+  }
 
   /* keep every section heading on a single line — shrink font to fit, never overflow */
   function fitHeadings(){
