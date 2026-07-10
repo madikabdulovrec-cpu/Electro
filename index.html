@@ -324,10 +324,21 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
 .foot-bottom{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:24px; font-size:.8rem; color:rgba(255,255,255,.42)}
 .foot-bottom a{color:var(--sage)}
 
-/* ============================ MOBILE CTA BAR ============================ */
-.mobile-cta{position:fixed; left:0; right:0; bottom:0; z-index:55; display:none; gap:10px; padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-  background:rgba(255,255,255,.92); backdrop-filter:blur(12px); border-top:1px solid var(--line)}
-.mobile-cta .btn{flex:1; justify-content:center}
+/* ============================ WHATSAPP FLOAT ============================ */
+.wa-float{position:fixed; right:20px; bottom:calc(20px + env(safe-area-inset-bottom)); z-index:90;
+  width:60px; height:60px; border-radius:50%; background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 28px -8px rgba(37,211,102,.55); animation:wa-pulse 2.2s ease-out infinite;
+  transition:transform .25s var(--ease)}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:34px; height:34px}
+@keyframes wa-pulse{
+  0%{box-shadow:0 12px 28px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,.5)}
+  70%{box-shadow:0 12px 28px -8px rgba(37,211,102,.55), 0 0 0 16px rgba(37,211,102,0)}
+  100%{box-shadow:0 12px 28px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,0)}
+}
+@media (max-width:640px){.wa-float{width:56px; height:56px; right:16px; bottom:calc(16px + env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion:reduce){.wa-float{animation:none}}
 
 /* ============================ REVEAL ============================ */
 .js .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease)}
@@ -351,9 +362,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   body{font-size:16px}
   .g3,.g2,.results-grid,.rev-grid,.steps,.safe-list,.subs-grid{grid-template-columns:1fr}
   .trust .wrap{justify-content:flex-start}
-  .mobile-cta{display:flex}
   .hero{padding-bottom:20px}
-  footer{padding-bottom:96px}
 }
 </style>
 </head>
@@ -399,11 +408,6 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   <div class="hero-lower">
     <div class="hero-copy reveal d2">
       <p class="lead">Электроэпиляция — единственный метод, который удаляет волосы по-настоящему навсегда: разрушается сама зона роста фолликула. Работает на волосах любого цвета и типа — тёмных, светлых, седых, рыжих, при гормональном росте и в деликатных зонах лица. Устойчивый результат — за курс процедур; план и стоимость определяем на консультации.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#booking">Записаться на консультацию
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <a class="btn btn-ghost" href="#pricing">Открытые цены</a>
-      </div>
       <div class="hero-note">
         <span><b>Одноразовые</b> стерильные иглы</span>
         <span><b>Один</b> мастер весь курс</span>
@@ -717,9 +721,9 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       <h2 class="h2" style="color:#fff; margin:18px 0 20px">Начните с консультации</h2>
       <p class="lead">Оценю ваш случай, честно скажу объём, сроки и стоимость. Без давления — решение за вами.</p>
       <div class="contact-list">
-        <a href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию%20по%20электроэпиляции" target="_blank" rel="noopener">
+        <a href="https://wa.me/77076585662?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию%20по%20электроэпиляции" target="_blank" rel="noopener">
           <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg></span>
-          <span><b>WhatsApp</b><small>+7 700 000-00-00 · ответ в рабочие часы</small></span>
+          <span><b>WhatsApp</b><small>+7 707 658 56 62 · ответ в рабочие часы</small></span>
         </a>
         <a href="https://instagram.com/" target="_blank" rel="noopener">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
@@ -734,8 +738,8 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     <div class="cta-panel reveal d1">
       <h3>Записаться на консультацию</h3>
       <p class="mut" style="margin-bottom:22px">Онлайн-запись со свободными слотами удобно подключить через zapis.kz, YCLIENTS или DIKIDI — виджет встанет прямо сюда.</p>
-      <a class="btn btn-primary" href="https://wa.me/77000000000?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-bottom:12px">Написать в WhatsApp</a>
-      <a class="btn btn-light" href="tel:+77000000000" style="width:100%; justify-content:center">Позвонить: +7 700 000-00-00</a>
+      <a class="btn btn-primary" href="https://wa.me/77076585662?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию" target="_blank" rel="noopener" style="width:100%; justify-content:center; margin-bottom:12px">Написать в WhatsApp</a>
+      <a class="btn btn-light" href="tel:+77076585662" style="width:100%; justify-content:center">Позвонить: +7 707 658 56 62</a>
       <p style="font-size:.78rem; color:rgba(255,255,255,.5); margin-top:18px; text-align:center">Обычно отвечаю в течение рабочего дня</p>
     </div>
   </div>
@@ -762,7 +766,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
           <a href="#for-whom">Лицо · губа · подбородок</a><a href="#for-whom">Седые и светлые волосы</a><a href="#for-whom">После лазера</a><a href="#for-whom">СПКЯ / гирсутизм</a>
         </div>
         <div class="foot-col"><h5>Контакты</h5>
-          <a href="https://wa.me/77000000000" target="_blank" rel="noopener">WhatsApp</a><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://2gis.kz/" target="_blank" rel="noopener">2ГИС</a><a href="tel:+77000000000">+7 700 000-00-00</a>
+          <a href="https://wa.me/77076585662" target="_blank" rel="noopener">WhatsApp</a><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://2gis.kz/" target="_blank" rel="noopener">2ГИС</a><a href="tel:+77076585662">+7 707 658 56 62</a>
         </div>
       </div>
     </div>
@@ -774,13 +778,10 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   </div>
 </footer>
 
-<!-- ============================ MOBILE CTA ============================ -->
-<div class="mobile-cta">
-  <a class="btn btn-ghost" href="tel:+77000000000" style="flex:none; padding-inline:1.1em" aria-label="Позвонить">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8 7 15 15 15l1-4-5-2-2 2c-2-1-4-3-5-5l2-2-2-5z"/></svg>
-  </a>
-  <a class="btn btn-primary" href="#booking">Бесплатная консультация</a>
-</div>
+<!-- ============================ WHATSAPP FLOAT ============================ -->
+<a class="wa-float" href="https://wa.me/77076585662?text=Здравствуйте!%20Хочу%20записаться%20на%20консультацию%20по%20электроэпиляции" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4h.01C24.6 28.8 30 23.4 30 16.8S24.6 3 16 3zm0 23.8h-.01c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.9.8.8-3.8-.3-.4a10.7 10.7 0 01-1.6-5.7C5.3 9.9 10.1 5.2 16 5.2c2.9 0 5.5 1.1 7.5 3.1a10.4 10.4 0 013.1 7.5c0 5.9-4.8 10.6-10.6 10.6zm5.9-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-1.9-.9-3.1-1.7-4.4-3.8-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.5.2-1.7-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
 
 <!-- ============================ MODAL: О мастере ============================ -->
 <div class="modal" id="modal-about" role="presentation">
@@ -813,7 +814,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
 
 <!-- ============================ JSON-LD ============================ -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"ЭПИЛА — кабинет электроэпиляции","description":"Электроэпиляция лица и тела в Алматы: перманентное удаление волос независимо от их цвета.","areaServed":"Алматы","priceRange":"₸₸","address":{"@type":"PostalAddress","addressLocality":"Алматы","addressCountry":"KZ","streetAddress":"[улица, дом]"},"telephone":"+7-700-000-00-00","openingHours":"Mo-Sa 10:00-19:00","makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Электроэпиляция"}}}
+{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"ЭПИЛА — кабинет электроэпиляции","description":"Электроэпиляция лица и тела в Алматы: перманентное удаление волос независимо от их цвета.","areaServed":"Алматы","priceRange":"₸₸","address":{"@type":"PostalAddress","addressLocality":"Алматы","addressCountry":"KZ","streetAddress":"[улица, дом]"},"telephone":"+7-707-658-56-62","openingHours":"Mo-Sa 10:00-19:00","makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Электроэпиляция"}}}
 </script>
 
 <script>
