@@ -249,6 +249,54 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
 .calc-out .big{font-family:var(--serif); font-size:clamp(1.8rem,4vw,2.5rem); color:#fff; line-height:1.1}
 .calc-out small{display:block; color:rgba(255,255,255,.6); font-size:.82rem; margin-top:8px}
 
+/* ============================ PROMO / СЕРТИФИКАТ ============================ */
+.promo-wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(30px,5vw,64px); align-items:center}
+.promo-wrap>*{min-width:0}
+.promo-benefits{list-style:none; display:grid; gap:14px; margin-top:26px}
+.promo-benefits li{display:flex; gap:13px; align-items:flex-start; font-size:1rem; color:var(--taupe)}
+.promo-benefits svg{width:22px; height:22px; color:var(--sage); flex:none; margin-top:2px}
+.promo-benefits b{font-weight:600; color:var(--ink)}
+
+.promo-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg);
+  overflow:hidden; box-shadow:0 34px 80px -46px rgba(42,44,39,.55)}
+.promo-ticket{position:relative; overflow:hidden; color:#fff; padding:26px 30px;
+  background:linear-gradient(150deg,#767B54,#525A34); border-bottom:2px dashed rgba(255,255,255,.45)}
+.promo-ticket>*{position:relative; z-index:1}
+.promo-ticket-deco{position:absolute; right:-14px; top:-16px; width:118px; height:118px; opacity:.16; z-index:0}
+.promo-ticket .lbl{font-family:var(--sans); font-weight:600; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.82)}
+.promo-ticket .val{font-family:var(--serif); font-size:clamp(2.4rem,5.2vw,3.3rem); line-height:1; margin:8px 0 6px}
+.promo-ticket .sub{font-size:.88rem; color:rgba(255,255,255,.86)}
+.promo-body{padding:24px 26px 26px}
+
+.promo-hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
+.promo-field{margin-bottom:15px}
+.promo-field label{display:block; font-size:.76rem; letter-spacing:.04em; text-transform:uppercase; color:var(--taupe); font-weight:600; margin-bottom:7px}
+.promo-field input{width:100%; padding:13px 15px; border-radius:11px; border:1px solid var(--line);
+  background:var(--porcelain); font-family:var(--sans); font-size:1rem; color:var(--ink); transition:border-color .25s, box-shadow .25s}
+.promo-field input::placeholder{color:#A8A9A2}
+.promo-field input:focus{outline:none; border-color:var(--clay); box-shadow:0 0 0 3px rgba(107,115,69,.12)}
+.promo-field input.err{border-color:#C0553F}
+.promo-err{color:#C0553F; font-size:.85rem; min-height:1.15em; margin:2px 0 8px}
+.promo-submit{width:100%; justify-content:center}
+.promo-fine{font-size:.78rem; color:var(--taupe); margin-top:14px; line-height:1.5}
+
+.promo-success{display:none}
+.promo-card.done .promo-form-view{display:none}
+.promo-card.done .promo-success{display:block}
+.promo-ok{display:flex; gap:12px; align-items:flex-start; margin-bottom:6px}
+.promo-ok svg{width:26px; height:26px; color:#5E6B3B; flex:none; margin-top:1px}
+.promo-ok b{color:var(--ink); font-weight:600}
+.promo-code{display:flex; align-items:center; justify-content:space-between; gap:12px;
+  background:var(--sand); border:1px dashed var(--clay); border-radius:12px; padding:13px 16px; margin:12px 0 14px}
+.promo-code b{font-family:var(--serif); font-size:clamp(1.35rem,3vw,1.6rem); letter-spacing:.06em; color:var(--bronze); white-space:nowrap}
+.promo-copy{border:1px solid var(--line); background:var(--porcelain); color:var(--ink); border-radius:9px;
+  padding:.55em .85em; font-size:.8rem; font-family:var(--sans); font-weight:600; cursor:pointer; white-space:nowrap; transition:border-color .25s, background .25s}
+.promo-copy:hover{border-color:var(--ink)}
+.promo-wa{width:100%; justify-content:center; background:#25D366; color:#fff; margin-top:4px}
+.promo-wa:hover{background:#1FBE5A; transform:translateY(-2px)}
+@media (max-width:1000px){ .promo-wrap{grid-template-columns:1fr} }
+@media (max-width:560px){ .promo-code b{font-size:1.25rem} }
+
 /* ============================ PLACEHOLDER FRAMES (photos) ============================ */
 .ph-frame{position:relative; border-radius:var(--r); overflow:hidden; background:
   repeating-linear-gradient(135deg,var(--sand),var(--sand) 12px,#E1E3E7 12px,#E1E3E7 24px);
@@ -668,6 +716,60 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
   </div>
 </section>
 
+<!-- ============================ PROMO / СЕРТИФИКАТ ============================ -->
+<section class="section" id="promo" aria-label="Сертификат по промокоду">
+  <div class="wrap">
+    <div class="promo-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Подарок при регистрации</span>
+        <h2 class="h2" style="margin:16px 0 20px">Сертификат 10 000 ₸ на абонемент</h2>
+        <p class="lead">Зарегистрируйтесь по промокоду — и получите сертификат на 10 000 ₸ к покупке абонемента на 5 или 10 часов. Заметная скидка на курс, результат которого остаётся с вами навсегда.</p>
+        <ul class="promo-benefits">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>10 000 ₸ к абонементу</b> — плюсом к выгоде тарифа (до −16% к поминутной цене).</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Регистрация за минуту</b> — оставьте имя и номер, промокод появится сразу на экране.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Без предоплаты</b> — активируете сертификат, когда решите начать курс.</span></li>
+        </ul>
+      </div>
+
+      <div class="promo-card reveal d1">
+        <div class="promo-ticket">
+          <svg class="promo-ticket-deco" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#fff" stroke-width="1.1"/><circle cx="32" cy="32" r="9" stroke="#fff" stroke-width="1.1"/><path d="M32 2v20m0 20v20" stroke="#fff" stroke-width="1.1"/></svg>
+          <div class="lbl">Подарочный сертификат</div>
+          <div class="val">10 000 ₸</div>
+          <div class="sub">на покупку абонемента · по промокоду</div>
+        </div>
+        <div class="promo-body">
+          <form class="promo-form-view" id="promoForm" novalidate>
+            <div class="promo-field">
+              <label for="pName">Как вас зовут</label>
+              <input id="pName" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+            </div>
+            <div class="promo-field">
+              <label for="pPhone">Телефон / WhatsApp</label>
+              <input id="pPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___ __ __" required>
+            </div>
+            <input class="promo-hp" type="text" name="company" id="pTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="promo-err" id="promoErr" role="alert"></div>
+            <button class="btn btn-primary promo-submit" type="submit">Получить промокод</button>
+            <p class="promo-fine">Отправляя форму, вы соглашаетесь на обработку контактных данных для связи по записи. Один сертификат на клиента; суммируется со скидкой абонемента, но не с другими акциями.</p>
+          </form>
+
+          <div class="promo-success" id="promoDone" aria-live="polite">
+            <div class="promo-ok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.6 2.6L16 9"/></svg>
+              <div><b>Готово, <span id="pGreetName">гость</span>!</b> Ваш промокод на сертификат 10 000 ₸:</div>
+            </div>
+            <div class="promo-code"><b id="pCode">EPILA-XXXX</b><button class="promo-copy" id="pCopy" type="button">Копировать</button></div>
+            <p class="promo-fine" style="margin-top:0">Чтобы закрепить сертификат за вами — отправьте промокод мастеру в WhatsApp. Я подтвержу его и учту 10 000 ₸ при покупке абонемента.</p>
+            <a class="btn promo-wa" id="pSend" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg> Отправить мастеру в WhatsApp</a>
+            <p class="promo-fine" id="pExp">Промокод действителен 14 дней. Назовите его при покупке абонемента.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ RESULTS ============================ -->
 <section class="section bg-sand" id="results">
   <div class="wrap">
@@ -927,6 +1029,52 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     });
     lb.addEventListener('click', closeLb);
     addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
+  }
+
+  /* промокод-сертификат — регистрация без бэкенда: генерируем код, отправляем мастеру в WhatsApp */
+  var pForm=doc.getElementById('promoForm');
+  if(pForm){
+    var pCard=(pForm.closest?pForm.closest('.promo-card'):pForm.parentNode.parentNode);
+    var pName=doc.getElementById('pName'), pPhone=doc.getElementById('pPhone'),
+        pTrap=doc.getElementById('pTrap'), pErr=doc.getElementById('promoErr'),
+        pCode=doc.getElementById('pCode'), pSend=doc.getElementById('pSend'),
+        pExp=doc.getElementById('pExp'), pGreet=doc.getElementById('pGreetName'),
+        pCopy=doc.getElementById('pCopy');
+    var WA='77076585662';
+    function digits(s){ return (s||'').replace(/\D/g,''); }
+    function genCode(){
+      var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s='';
+      for(var i=0;i<4;i++){ s+=A.charAt(Math.floor(Math.random()*A.length)); }
+      return 'EPILA-'+s;
+    }
+    function fail(msg, el){ pErr.textContent=msg; if(el){ el.classList.add('err'); el.focus(); } }
+    pForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      pErr.textContent=''; pName.classList.remove('err'); pPhone.classList.remove('err');
+      if(pTrap && pTrap.value){ return; }               /* honeypot — молча отсекаем ботов */
+      var nm=(pName.value||'').trim(), ph=(pPhone.value||'').trim();
+      if(nm.length<2){ return fail('Пожалуйста, укажите имя.', pName); }
+      if(digits(ph).length<10){ return fail('Проверьте номер — нужен полный телефон с кодом.', pPhone); }
+      var code=genCode();
+      pCode.textContent=code;
+      if(pGreet){ pGreet.textContent=nm; }
+      var msg='Здравствуйте! Регистрируюсь по промокоду '+code+' — сертификат 10 000 ₸ на абонемент.\nИмя: '+nm+'\nТелефон: '+ph;
+      pSend.href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+      if(pExp){
+        var d=new Date(); d.setDate(d.getDate()+14);
+        pExp.textContent='Промокод действителен до '+d.toLocaleDateString('ru-RU')+'. Назовите его при покупке абонемента.';
+      }
+      pCard.classList.add('done');
+      try{ if(pSend.scrollIntoView) pSend.scrollIntoView({block:'nearest'}); }catch(_e){}
+    });
+    [pName,pPhone].forEach(function(el){ el.addEventListener('input', function(){ el.classList.remove('err'); if(pErr.textContent) pErr.textContent=''; }); });
+    if(pCopy){
+      pCopy.addEventListener('click', function(){
+        var t=pCode.textContent, done=function(){ var o='Копировать'; pCopy.textContent='Скопировано ✓'; setTimeout(function(){ pCopy.textContent=o; },1600); };
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, done); }
+        else{ try{ var ta=doc.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; doc.body.appendChild(ta); ta.select(); doc.execCommand('copy'); doc.body.removeChild(ta); done(); }catch(_e){} }
+      });
+    }
   }
 
   /* year */
