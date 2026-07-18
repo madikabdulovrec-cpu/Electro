@@ -301,16 +301,20 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
 .promo-ok{display:flex; gap:12px; align-items:flex-start; margin-bottom:6px}
 .promo-ok svg{width:26px; height:26px; color:#5E6B3B; flex:none; margin-top:1px}
 .promo-ok b{color:var(--ink); font-weight:600}
-.promo-code{display:flex; align-items:center; justify-content:space-between; gap:12px;
-  background:var(--sand); border:1px dashed var(--clay); border-radius:12px; padding:13px 16px; margin:12px 0 14px}
-.promo-code b{font-family:var(--serif); font-size:clamp(1.35rem,3vw,1.6rem); letter-spacing:.06em; color:var(--bronze); white-space:nowrap}
-.promo-copy{border:1px solid var(--line); background:var(--porcelain); color:var(--ink); border-radius:9px;
-  padding:.55em .85em; font-size:.8rem; font-family:var(--sans); font-weight:600; cursor:pointer; white-space:nowrap; transition:border-color .25s, background .25s}
-.promo-copy:hover{border-color:var(--ink)}
+.promo-recap{background:var(--sand); border:1px dashed var(--clay); border-radius:12px; padding:14px 16px; margin:12px 0 14px}
+.promo-recap div{display:flex; justify-content:space-between; gap:14px; font-size:.9rem; padding:3px 0}
+.promo-recap span{color:var(--taupe); flex:none}
+.promo-recap b{font-weight:600; color:var(--bronze); text-align:right; overflow-wrap:anywhere}
 .promo-wa{width:100%; justify-content:center; background:#25D366; color:#fff; margin-top:4px}
 .promo-wa:hover{background:#1FBE5A; transform:translateY(-2px)}
+
+.promo-alt{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:clamp(28px,4vw,44px)}
+.promo-alt>*{min-width:0}
+.promo-alt-card{border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; background:var(--paper)}
+.promo-alt-card h3{font-family:var(--serif); font-size:1.2rem; margin:0 0 9px; letter-spacing:-.01em}
+.promo-alt-card p{font-size:.92rem; color:var(--taupe); margin:0 0 18px}
 @media (max-width:1000px){ .promo-wrap{grid-template-columns:1fr} }
-@media (max-width:560px){ .promo-code b{font-size:1.25rem} }
+@media (max-width:760px){ .promo-alt{grid-template-columns:1fr} }
 
 /* ============================ PLACEHOLDER FRAMES (photos) ============================ */
 .ph-frame{position:relative; border-radius:var(--r); overflow:hidden; background:
@@ -717,7 +721,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       <div class="subs-grid subs-primary">
         <div class="sub-card">
           <div class="sub-top"><span class="sub-h">Start</span><span class="sub-tag">самый доступный</span></div>
-          <div class="sub-price">30 000 ₸ <span class="sub-badge">+6 000 ₸ минутами</span></div>
+          <div class="sub-price">30 000 ₸ <span class="sub-badge">+15 минут в подарок</span></div>
           <div class="sub-mins"><b>75 минут</b> + <b class="gift">15 минут в подарок</b> = 90 минут</div>
           <ul class="sub-list">
             <li>≈ 333 ₸ за минуту вместо 400 ₸</li>
@@ -727,7 +731,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
         </div>
         <div class="sub-card">
           <div class="sub-top"><span class="sub-h">Plus</span><span class="sub-tag">больше минут</span></div>
-          <div class="sub-price">50 000 ₸ <span class="sub-badge">+10 000 ₸ минутами</span></div>
+          <div class="sub-price">50 000 ₸ <span class="sub-badge">+25 минут в подарок</span></div>
           <div class="sub-mins"><b>125 минут</b> + <b class="gift">25 минут в подарок</b> = 150 минут</div>
           <ul class="sub-list">
             <li>≈ 333 ₸ за минуту вместо 400 ₸</li>
@@ -759,17 +763,17 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
 </section>
 
 <!-- ============================ PROMO / СЕРТИФИКАТ ============================ -->
-<section class="section" id="promo" aria-label="Сертификат по промокоду">
+<section class="section" id="promo" aria-label="Корпоративный сертификат для сотрудников компаний-партнёров">
   <div class="wrap">
     <div class="promo-wrap">
       <div class="reveal">
-        <span class="eyebrow">Подарок при регистрации</span>
-        <h2 class="h2" style="margin:16px 0 20px">Сертификат 10 000 ₸ на абонемент</h2>
-        <p class="lead">Зарегистрируйтесь по промокоду — и получите сертификат на 10 000 ₸ к покупке абонемента на 5 или 10 часов. Заметная скидка на курс, результат которого остаётся с вами навсегда.</p>
+        <span class="eyebrow">Программа для компаний-партнёров</span>
+        <h2 class="h2" style="margin:16px 0 20px">Сертификат 10 000 ₸ партнёрам</h2>
+        <p class="lead">Сотрудники компаний-партнёров получают сертификат на 10 000 ₸ к покупке абонемента на 5 или 10 часов. Код компании выдаёт работодатель — в рассылке или в рабочем чате. Введите его здесь: я подтвержу код лично и закреплю сертификат за вами.</p>
         <ul class="promo-benefits">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>10 000 ₸ к абонементу</b> — плюсом к выгоде тарифа (до −16% к поминутной цене).</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Регистрация за минуту</b> — оставьте имя и номер, промокод появится сразу на экране.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Без предоплаты</b> — активируете сертификат, когда решите начать курс.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>10 000 ₸ к абонементу</b> — плюсом к выгоде тарифа, к пакетам на 5 и 10 часов.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Нужен код компании</b> — его выдаёт работодатель или салон-партнёр. Кода нет — напишите мне, проверю, есть ли ваша компания в программе.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Без предоплаты</b> — сертификат действует 3 месяца со дня выдачи, активируете, когда решите начать курс.</span></li>
         </ul>
       </div>
 
@@ -778,10 +782,15 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
           <svg class="promo-ticket-deco" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#fff" stroke-width="1.1"/><circle cx="32" cy="32" r="9" stroke="#fff" stroke-width="1.1"/><path d="M32 2v20m0 20v20" stroke="#fff" stroke-width="1.1"/></svg>
           <div class="lbl">Подарочный сертификат</div>
           <div class="val">10 000 ₸</div>
-          <div class="sub">на покупку абонемента · по промокоду</div>
+          <div class="sub">сотрудникам компаний-партнёров</div>
         </div>
         <div class="promo-body">
           <form class="promo-form-view" id="promoForm" novalidate>
+            <div class="promo-field">
+              <label for="pOrgCode">Код компании</label>
+              <input id="pOrgCode" name="orgcode" type="text" autocomplete="off" spellcheck="false" style="text-transform:uppercase" placeholder="Код из рассылки работодателя" aria-describedby="pOrgHint" required>
+              <p class="promo-fine" id="pOrgHint" style="margin-top:7px">Работодателю не сообщается ни факт обращения, ни что-либо о процедуре.</p>
+            </div>
             <div class="promo-field">
               <label for="pName">Как вас зовут</label>
               <input id="pName" name="name" type="text" autocomplete="name" placeholder="Имя" required>
@@ -790,23 +799,38 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
               <label for="pPhone">Телефон / WhatsApp</label>
               <input id="pPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___ __ __" required>
             </div>
-            <input class="promo-hp" type="text" name="company" id="pTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input class="promo-hp" type="text" name="org_ref" id="pTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="promo-err" id="promoErr" role="alert"></div>
-            <button class="btn btn-primary promo-submit" type="submit">Получить промокод</button>
-            <p class="promo-fine">Отправляя форму, вы соглашаетесь на обработку контактных данных для связи по записи. Один сертификат на клиента; суммируется со скидкой абонемента, но не с другими акциями.</p>
+            <button class="btn btn-primary promo-submit" type="submit">Отправить заявку мастеру</button>
+            <p class="promo-fine">Код — заявка на сертификат, а не сам сертификат: право на него подтверждаю я лично. Сертификат один на человека, действует 3 месяца со дня выдачи на абонементы на 5 и 10 часов, суммируется с выгодой абонемента, но не с другими акциями, не обменивается на деньги и не передаётся другому лицу. Информация на этой странице не является публичной офертой. Отправляя форму, вы соглашаетесь на обработку имени и телефона для связи по записи.</p>
           </form>
 
           <div class="promo-success" id="promoDone" aria-live="polite">
             <div class="promo-ok">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.6 2.6L16 9"/></svg>
-              <div><b>Готово, <span id="pGreetName">гость</span>!</b> Ваш промокод на сертификат 10 000 ₸:</div>
+              <div><b>Спасибо, <span id="pGreetName">гость</span>!</b> Заявка сформирована — отправьте её мне в WhatsApp, я проверю код компании и подтвержу сертификат на 10 000 ₸.</div>
             </div>
-            <div class="promo-code"><b id="pCode">EPILA-XXXX</b><button class="promo-copy" id="pCopy" type="button">Копировать</button></div>
-            <p class="promo-fine" style="margin-top:0">Чтобы закрепить сертификат за вами — отправьте промокод мастеру в WhatsApp. Я подтвержу его и учту 10 000 ₸ при покупке абонемента.</p>
+            <div class="promo-recap">
+              <div><span>Код компании</span><b id="pRecapCode">—</b></div>
+              <div><span>Телефон</span><b id="pRecapPhone">—</b></div>
+            </div>
             <a class="btn promo-wa" id="pSend" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg> Отправить мастеру в WhatsApp</a>
-            <p class="promo-fine" id="pExp">Промокод действителен 14 дней. Назовите его при покупке абонемента.</p>
+            <p class="promo-fine" id="pExp">Обычно отвечаю в течение рабочего дня. После подтверждения сертификат действует 3 месяца.</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="promo-alt">
+      <div class="promo-alt-card reveal">
+        <h3>Вашей компании нет в списке?</h3>
+        <p>Сертификат — отдельная договорённость с работодателями, а не уровень доступа к процедуре. Всё остальное открыто для всех: те же 400 ₸ за минуту, те же абонементы и бесплатная консультация.</p>
+        <a class="btn btn-ghost" href="#booking">Записаться на консультацию</a>
+      </div>
+      <div class="promo-alt-card reveal d1">
+        <h3>Подключить компанию к программе</h3>
+        <p>Даю сотрудникам вашей компании сертификат 10 000 ₸ на курс электроэпиляции. Компании это не стоит ничего. Напишите — оформим за один разговор.</p>
+        <a class="btn btn-ghost" href="https://wa.me/77076585662?text=Здравствуйте!%20Пишу%20по%20корпоративной%20программе%20—%20хочу%20подключить%20свою%20компанию.%20Расскажите%20условия." target="_blank" rel="noopener">Написать по корпоративным условиям</a>
       </div>
     </div>
   </div>
@@ -852,6 +876,9 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       <details class="q"><summary>Чем отличается от лазера и можно ли делать после лазера?</summary><div class="a">Лазер и фотоэпиляция воздействуют на пигмент волоса и наиболее эффективны на тёмных волосах и светлой коже; на светлых, седых и рыжих волосах они малоэффективны. Электроэпиляция разрушает зону роста фолликула независимо от цвета волоса, поэтому логично «доделывает» остаточные светлые и тонкие волоски после лазерного курса. После последнего сеанса лазерной эпиляции рекомендуется выдержать паузу не менее месяца. Это необходимо, чтобы волосы вышли на поверхность кожи и можно было эффективно их обработать.</div></details>
       <details class="q"><summary>Безопасно ли это? Как со стерильностью?</summary><div class="a">Это один из наиболее изученных методов удаления волос. Мы работаем только одноразовыми стерильными иглами — упаковка вскрывается при вас, а игла утилизируется после процедуры; многоразовый инструмент проходит полную стерилизацию, кабинет обрабатывается после каждого клиента. После процедуры возможно лёгкое покраснение и небольшая отёчность — это нормальная реакция кожи, которая проходит самостоятельно; в процессе заживления могут появиться небольшие защитные корочки — их не нужно удалять, они сходят сами без следов. Противопоказания обсуждаем до начала.</div></details>
       <details class="q"><summary>Сколько это стоит?</summary><div class="a">Стоимость рассчитывается поминутно — вы оплачиваете только фактически выполненную работу.<br><br><b>Например:</b><br>Лицо: 35 минут × 400 ₸ = <b>14 000 ₸</b><br>Бикини: 126 минут × 400 ₸ = <b>50 400 ₸</b><br><br>Такой формат позволяет платить именно за объём работы, а не за фиксированную стоимость зоны.<br><br>На сайте вы можете посмотреть ориентировочное время для разных зон и воспользоваться калькулятором. На бесплатной консультации я оценю ваш случай, сориентирую по количеству времени и назову примерную стоимость курса.<br><br>Если вам важно уложиться в определённый бюджет, просто сообщите об этом заранее — рассчитаем, сколько минут можно работать, и остановим процедуру на согласованной сумме.<br><br>Минимальная продолжительность оплачиваемого приёма — <b>30 минут (12 000 ₸)</b>.</div></details>
+      <details class="q"><summary>У меня нет кода компании — что мне доступно?</summary><div class="a">Всё то же самое: те же 400 ₸ за минуту, те же абонементы с подарочными минутами и та же бесплатная консультация. Корпоративный сертификат — отдельная договорённость с работодателями, а не уровень доступа к процедуре. Хотите, чтобы такая программа появилась и у вашей компании, — напишите мне, обсудим условия.</div></details>
+      <details class="q"><summary>Где взять код компании?</summary><div class="a">У руководителя или HR вашей компании, либо у администратора салона-партнёра — код рассылают сотрудникам. Выглядит он так: EPILA-НАЗВАНИЕ. Код — это заявка на сертификат, а не сам сертификат: я проверяю его лично и подтверждаю в переписке.</div></details>
+      <details class="q"><summary>Сертификат действует на Start и Plus?</summary><div class="a">Нет, только на абонементы на 5 и 10 часов. В Start и Plus подарочные минуты уже включены в цену. Сертификат действует 3 месяца со дня выдачи, суммируется с выгодой абонемента, но не с другими акциями.</div></details>
     </div>
   </div>
 </section>
@@ -915,7 +942,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     </div>
     <p class="disclaimer">Информация на сайте носит справочный характер и не заменяет очную консультацию специалиста. Электроэпиляция — косметологическая процедура; результат, количество сеансов и переносимость индивидуальны и зависят от типа волос, зоны и особенностей организма. Метод не является лечением гормональных и иных заболеваний. Возможны противопоказания — необходима консультация. Формулировки о «перманентном удалении» приведены в соответствии с регуляторной классификацией FDA (США); лазер и IPL классифицируются как «перманентное сокращение роста».</p>
     <div class="foot-bottom">
-      <span>© <span id="yr">2026</span> ЭПИЛА · Алматы. Все данные (адрес, телефон, цены) — placeholder, замените на свои.</span>
+      <span>© <span id="yr">2026</span> ЭПИЛА · Алматы</span>
       <span>Дизайн-макет · <a href="#top">наверх ↑</a></span>
     </div>
   </div>
@@ -1073,50 +1100,43 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
   }
 
-  /* промокод-сертификат — регистрация без бэкенда: генерируем код, отправляем мастеру в WhatsApp */
+  /* корпоративный сертификат — страница НЕ проверяет код по списку и ничего не выдаёт:
+     она собирает заявку и передаёт её мастеру, право на сертификат подтверждает мастер лично.
+     Списка партнёров в этом файле нет и быть не должно — репозиторий публичный. */
   var pForm=doc.getElementById('promoForm');
   if(pForm){
     var pCard=(pForm.closest?pForm.closest('.promo-card'):pForm.parentNode.parentNode);
-    var pName=doc.getElementById('pName'), pPhone=doc.getElementById('pPhone'),
+    var pOrg=doc.getElementById('pOrgCode'),
+        pName=doc.getElementById('pName'), pPhone=doc.getElementById('pPhone'),
         pTrap=doc.getElementById('pTrap'), pErr=doc.getElementById('promoErr'),
-        pCode=doc.getElementById('pCode'), pSend=doc.getElementById('pSend'),
-        pExp=doc.getElementById('pExp'), pGreet=doc.getElementById('pGreetName'),
-        pCopy=doc.getElementById('pCopy');
+        pSend=doc.getElementById('pSend'), pGreet=doc.getElementById('pGreetName'),
+        pRecapCode=doc.getElementById('pRecapCode'), pRecapPhone=doc.getElementById('pRecapPhone');
     var WA='77076585662';
     function digits(s){ return (s||'').replace(/\D/g,''); }
-    function genCode(){
-      var A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789', s='';
-      for(var i=0;i<4;i++){ s+=A.charAt(Math.floor(Math.random()*A.length)); }
-      return 'EPILA-'+s;
-    }
     function fail(msg, el){ pErr.textContent=msg; if(el){ el.classList.add('err'); el.focus(); } }
     pForm.addEventListener('submit', function(e){
       e.preventDefault();
-      pErr.textContent=''; pName.classList.remove('err'); pPhone.classList.remove('err');
+      pErr.textContent=''; pOrg.classList.remove('err'); pName.classList.remove('err'); pPhone.classList.remove('err');
       if(pTrap && pTrap.value){ return; }               /* honeypot — молча отсекаем ботов */
+      /* поле визуально в верхнем регистре через CSS, но значение приводим к нему явно */
+      var oc=(pOrg.value||'').replace(/\s+/g,'').toUpperCase();
       var nm=(pName.value||'').trim(), ph=(pPhone.value||'').trim();
+      /* проверяем ТОЛЬКО формат: существует код или нет — знает мастер, не страница */
+      if(!/^[A-Z0-9-]{3,20}$/.test(oc)){ return fail('Проверьте код компании — его выдаёт ваш работодатель.', pOrg); }
       if(nm.length<2){ return fail('Пожалуйста, укажите имя.', pName); }
       if(digits(ph).length<10){ return fail('Проверьте номер — нужен полный телефон с кодом.', pPhone); }
-      var code=genCode();
-      pCode.textContent=code;
       if(pGreet){ pGreet.textContent=nm; }
-      var msg='Здравствуйте! Регистрируюсь по промокоду '+code+' — сертификат 10 000 ₸ на абонемент.\nИмя: '+nm+'\nТелефон: '+ph;
+      if(pRecapCode){ pRecapCode.textContent=oc; }
+      if(pRecapPhone){ pRecapPhone.textContent=ph; }
+      var msg='Здравствуйте! Заявка на корпоративный сертификат 10 000 ₸.'
+            +'\nКод компании: '+oc
+            +'\nИмя: '+nm
+            +'\nТелефон: '+ph;
       pSend.href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
-      if(pExp){
-        var d=new Date(); d.setDate(d.getDate()+14);
-        pExp.textContent='Промокод действителен до '+d.toLocaleDateString('ru-RU')+'. Назовите его при покупке абонемента.';
-      }
       pCard.classList.add('done');
       try{ if(pSend.scrollIntoView) pSend.scrollIntoView({block:'nearest'}); }catch(_e){}
     });
-    [pName,pPhone].forEach(function(el){ el.addEventListener('input', function(){ el.classList.remove('err'); if(pErr.textContent) pErr.textContent=''; }); });
-    if(pCopy){
-      pCopy.addEventListener('click', function(){
-        var t=pCode.textContent, done=function(){ var o='Копировать'; pCopy.textContent='Скопировано ✓'; setTimeout(function(){ pCopy.textContent=o; },1600); };
-        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done, done); }
-        else{ try{ var ta=doc.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; doc.body.appendChild(ta); ta.select(); doc.execCommand('copy'); doc.body.removeChild(ta); done(); }catch(_e){} }
-      });
-    }
+    [pOrg,pName,pPhone].forEach(function(el){ el.addEventListener('input', function(){ el.classList.remove('err'); if(pErr.textContent) pErr.textContent=''; }); });
   }
 
   /* year */
