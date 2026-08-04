@@ -249,6 +249,8 @@ table.cmp tr:last-child td,table.cmp tr:last-child th{border-bottom:none}
 .subs-more{border-top:1px solid var(--line-soft); padding-top:clamp(22px,3vw,32px)}
 .subs-more h4{font-family:var(--sans); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase;
   color:var(--taupe); font-weight:600; margin-bottom:16px}
+.subs-partner{margin-top:clamp(30px,4.5vw,52px)}
+.subs-partner-h{font-family:var(--sans); font-size:.92rem; font-weight:600; color:var(--taupe); margin-bottom:16px; line-height:1.55}
 
 .calc{background:var(--graphite); color:var(--porcelain); border-radius:var(--r-lg); padding:30px 28px; position:sticky; top:96px}
 .calc h3{color:var(--porcelain); font-size:1.4rem; margin-bottom:6px}
@@ -452,6 +454,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       <a href="#method">Метод</a>
       <a href="#compare">Сравнение</a>
       <a href="#pricing">Цены</a>
+      <a href="#promo">Партнёрам</a>
       <a href="#faq">Вопросы</a>
     </div>
     <div class="nav-cta">
@@ -716,8 +719,86 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     </div>
 
     <div class="subs reveal">
-      <div class="subs-head"><h3>Абонементы</h3><span>минуты со скидкой + подарочные минуты сверху</span></div>
+      <div class="subs-head"><h3>Абонементы</h3><span>срок действия — 2 месяца · выгоднее поминутной оплаты</span></div>
+      <div class="subs-grid">
+        <div class="sub-card">
+          <div class="sub-top"><span class="sub-h">5 часов</span><span class="sub-old">120 000 ₸</span></div>
+          <div class="sub-price">111 600 ₸ <span class="sub-badge">−7%</span></div>
+          <div class="sub-note">372 ₸ за минуту вместо 400 · 300 минут</div>
+        </div>
+        <div class="sub-card best">
+          <div class="sub-top"><span class="sub-h">10 часов</span><span class="sub-old">240 000 ₸</span></div>
+          <div class="sub-price">201 600 ₸ <span class="sub-badge">−16%</span></div>
+          <div class="sub-note">336 ₸ за минуту вместо 400 · 600 минут · самая низкая цена минуты</div>
+        </div>
+      </div>
+    </div>
 
+    <p class="cmp-note reveal">Итоговая стоимость зависит от густоты волос и считается по фактическому времени. На бесплатной консультации назову реалистичный объём, сроки и стоимость.</p>
+  </div>
+</section>
+
+<!-- ============================ PROMO / СЕРТИФИКАТ ============================ -->
+<section class="section" id="promo" aria-label="Партнёрская программа — сертификат 10 000 ₸">
+  <div class="wrap">
+    <div class="promo-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Партнёрская программа</span>
+        <h2 class="h2" style="margin:16px 0 20px">Сертификат 10 000 ₸ по коду партнёра</h2>
+        <p class="lead">Клиенты студий-партнёров получают сертификат 10 000 ₸ на абонемент Start или Plus — доступный вход в курс. Код выдаёт партнёр. Введите его здесь: я подтвержу код лично и закреплю сертификат за вами.</p>
+        <ul class="promo-benefits">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>10 000 ₸ на Start или Plus</b> — доступная точка входа в курс.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Нужен код партнёра</b> — его выдаёт студия-партнёр. Кода нет — напишите мне, проверю, есть ли партнёр в программе.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Без предоплаты</b> — сертификат действует 3 месяца со дня выдачи, активируете, когда решите начать курс.</span></li>
+        </ul>
+      </div>
+
+      <div class="promo-card reveal d1">
+        <div class="promo-ticket">
+          <svg class="promo-ticket-deco" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#fff" stroke-width="1.1"/><circle cx="32" cy="32" r="9" stroke="#fff" stroke-width="1.1"/><path d="M32 2v20m0 20v20" stroke="#fff" stroke-width="1.1"/></svg>
+          <div class="lbl">Подарочный сертификат</div>
+          <div class="val">10 000 ₸</div>
+          <div class="sub">на Start или Plus · по коду партнёра</div>
+        </div>
+        <div class="promo-body">
+          <form class="promo-form-view" id="promoForm" novalidate>
+            <div class="promo-field">
+              <label for="pOrgCode">Код партнёра</label>
+              <input id="pOrgCode" name="orgcode" type="text" autocomplete="off" spellcheck="false" style="text-transform:uppercase" placeholder="Код от студии-партнёра" aria-describedby="pOrgHint" required>
+              <p class="promo-fine" id="pOrgHint" style="margin-top:7px">Партнёру не сообщается ни факт обращения, ни что-либо о процедуре.</p>
+            </div>
+            <div class="promo-field">
+              <label for="pName">Как вас зовут</label>
+              <input id="pName" name="name" type="text" autocomplete="name" placeholder="Имя" required>
+            </div>
+            <div class="promo-field">
+              <label for="pPhone">Телефон / WhatsApp</label>
+              <input id="pPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___ __ __" required>
+            </div>
+            <input class="promo-hp" type="text" name="org_ref" id="pTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="promo-err" id="promoErr" role="alert"></div>
+            <button class="btn btn-primary promo-submit" type="submit">Отправить заявку мастеру</button>
+            <p class="promo-fine">Код — заявка на сертификат, а не сам сертификат: право на него подтверждаю я лично. Сертификат один на человека, действует 3 месяца со дня выдачи на абонементы Start и Plus, не суммируется с другими акциями, не обменивается на деньги и не передаётся другому лицу. Информация на этой странице не является публичной офертой. Отправляя форму, вы соглашаетесь на обработку имени и телефона для связи по записи.</p>
+          </form>
+
+          <div class="promo-success" id="promoDone" aria-live="polite">
+            <div class="promo-ok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.6 2.6L16 9"/></svg>
+              <div><b>Спасибо, <span id="pGreetName">гость</span>!</b> Заявка сформирована — отправьте её мне в WhatsApp, я проверю код партнёра и подтвержу сертификат на 10 000 ₸.</div>
+            </div>
+            <div class="promo-recap">
+              <div><span>Код партнёра</span><b id="pRecapCode">—</b></div>
+              <div><span>Телефон</span><b id="pRecapPhone">—</b></div>
+            </div>
+            <a class="btn promo-wa" id="pSend" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg> Отправить мастеру в WhatsApp</a>
+            <p class="promo-fine" id="pExp">Обычно отвечаю в течение рабочего дня. После подтверждения сертификат действует 3 месяца.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subs-partner reveal">
+      <h4 class="subs-partner-h">Абонементы Start и Plus — вход по коду партнёра. Сертификат 10 000 ₸ действует на них.</h4>
       <div class="subs-grid subs-primary">
         <div class="sub-card">
           <div class="sub-top"><span class="sub-h">Start</span><span class="sub-tag">самый доступный</span></div>
@@ -740,97 +821,18 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
           </ul>
         </div>
       </div>
-
-      <div class="subs-more">
-        <h4>Большие пакеты — для объёмных зон</h4>
-        <div class="subs-grid">
-          <div class="sub-card">
-            <div class="sub-top"><span class="sub-h">5 часов</span><span class="sub-old">120 000 ₸</span></div>
-            <div class="sub-price">93 000 ₸ <span class="sub-badge">−22%</span></div>
-            <div class="sub-note">310 ₸ за минуту вместо 400 · 300 минут · срок действия 4 месяца</div>
-          </div>
-          <div class="sub-card best">
-            <div class="sub-top"><span class="sub-h">10 часов</span><span class="sub-old">240 000 ₸</span></div>
-            <div class="sub-price">174 000 ₸ <span class="sub-badge">−27%</span></div>
-            <div class="sub-note">290 ₸ за минуту вместо 400 · 600 минут · самая низкая цена минуты · срок действия 6 месяцев</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <p class="cmp-note reveal">Итоговая стоимость зависит от густоты волос и считается по фактическому времени. На бесплатной консультации назову реалистичный объём, сроки и стоимость.</p>
-  </div>
-</section>
-
-<!-- ============================ PROMO / СЕРТИФИКАТ ============================ -->
-<section class="section" id="promo" aria-label="Корпоративный сертификат для сотрудников компаний-партнёров">
-  <div class="wrap">
-    <div class="promo-wrap">
-      <div class="reveal">
-        <span class="eyebrow">Программа для компаний-партнёров</span>
-        <h2 class="h2" style="margin:16px 0 20px">Сертификат 10 000 ₸ партнёрам</h2>
-        <p class="lead">Сотрудники компаний-партнёров получают сертификат на 10 000 ₸ к покупке абонемента на 5 или 10 часов. Код компании выдаёт работодатель — в рассылке или в рабочем чате. Введите его здесь: я подтвержу код лично и закреплю сертификат за вами.</p>
-        <ul class="promo-benefits">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>10 000 ₸ к абонементу</b> — плюсом к выгоде тарифа, к пакетам на 5 и 10 часов.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Нужен код компании</b> — его выдаёт работодатель или салон-партнёр. Кода нет — напишите мне, проверю, есть ли ваша компания в программе.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12l5 5 9-11"/></svg><span><b>Без предоплаты</b> — сертификат действует 3 месяца со дня выдачи, активируете, когда решите начать курс.</span></li>
-        </ul>
-      </div>
-
-      <div class="promo-card reveal d1">
-        <div class="promo-ticket">
-          <svg class="promo-ticket-deco" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="30" stroke="#fff" stroke-width="1.1"/><circle cx="32" cy="32" r="9" stroke="#fff" stroke-width="1.1"/><path d="M32 2v20m0 20v20" stroke="#fff" stroke-width="1.1"/></svg>
-          <div class="lbl">Подарочный сертификат</div>
-          <div class="val">10 000 ₸</div>
-          <div class="sub">сотрудникам компаний-партнёров</div>
-        </div>
-        <div class="promo-body">
-          <form class="promo-form-view" id="promoForm" novalidate>
-            <div class="promo-field">
-              <label for="pOrgCode">Код компании</label>
-              <input id="pOrgCode" name="orgcode" type="text" autocomplete="off" spellcheck="false" style="text-transform:uppercase" placeholder="Код из рассылки работодателя" aria-describedby="pOrgHint" required>
-              <p class="promo-fine" id="pOrgHint" style="margin-top:7px">Работодателю не сообщается ни факт обращения, ни что-либо о процедуре.</p>
-            </div>
-            <div class="promo-field">
-              <label for="pName">Как вас зовут</label>
-              <input id="pName" name="name" type="text" autocomplete="name" placeholder="Имя" required>
-            </div>
-            <div class="promo-field">
-              <label for="pPhone">Телефон / WhatsApp</label>
-              <input id="pPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (7__) ___ __ __" required>
-            </div>
-            <input class="promo-hp" type="text" name="org_ref" id="pTrap" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="promo-err" id="promoErr" role="alert"></div>
-            <button class="btn btn-primary promo-submit" type="submit">Отправить заявку мастеру</button>
-            <p class="promo-fine">Код — заявка на сертификат, а не сам сертификат: право на него подтверждаю я лично. Сертификат один на человека, действует 3 месяца со дня выдачи на абонементы на 5 и 10 часов, суммируется с выгодой абонемента, но не с другими акциями, не обменивается на деньги и не передаётся другому лицу. Информация на этой странице не является публичной офертой. Отправляя форму, вы соглашаетесь на обработку имени и телефона для связи по записи.</p>
-          </form>
-
-          <div class="promo-success" id="promoDone" aria-live="polite">
-            <div class="promo-ok">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l2.6 2.6L16 9"/></svg>
-              <div><b>Спасибо, <span id="pGreetName">гость</span>!</b> Заявка сформирована — отправьте её мне в WhatsApp, я проверю код компании и подтвержу сертификат на 10 000 ₸.</div>
-            </div>
-            <div class="promo-recap">
-              <div><span>Код компании</span><b id="pRecapCode">—</b></div>
-              <div><span>Телефон</span><b id="pRecapPhone">—</b></div>
-            </div>
-            <a class="btn promo-wa" id="pSend" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-2.6.7.7-2.6-.2-.3A8 8 0 0112 4zm4.4 10.2c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5s-.5-1.3-.7-1.8-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.5 1 2.6 1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg> Отправить мастеру в WhatsApp</a>
-            <p class="promo-fine" id="pExp">Обычно отвечаю в течение рабочего дня. После подтверждения сертификат действует 3 месяца.</p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="promo-alt">
       <div class="promo-alt-card reveal">
-        <h3>Вашей компании нет в списке?</h3>
-        <p>Сертификат — отдельная договорённость с работодателями, а не уровень доступа к процедуре. Всё остальное открыто для всех: те же 400 ₸ за минуту, те же абонементы и бесплатная консультация.</p>
+        <h3>Нет кода партнёра?</h3>
+        <p>Сертификат — отдельная договорённость со студиями-партнёрами, а не уровень доступа к процедуре. Всё остальное открыто для всех: те же 400 ₸ за минуту, абонементы на 5 и 10 часов и бесплатная консультация.</p>
         <a class="btn btn-ghost" href="#booking">Записаться на консультацию</a>
       </div>
       <div class="promo-alt-card reveal d1">
-        <h3>Подключить компанию к программе</h3>
-        <p>Даю сотрудникам вашей компании сертификат 10 000 ₸ на курс электроэпиляции. Компании это не стоит ничего. Напишите — оформим за один разговор.</p>
-        <a class="btn btn-ghost" href="https://wa.me/77076585662?text=Здравствуйте!%20Пишу%20по%20корпоративной%20программе%20—%20хочу%20подключить%20свою%20компанию.%20Расскажите%20условия." target="_blank" rel="noopener">Написать по корпоративным условиям</a>
+        <h3>Стать партнёром</h3>
+        <p>Даю клиентам вашей студии сертификат 10 000 ₸ на курс электроэпиляции. Партнёру это не стоит ничего. Напишите — оформим за один разговор.</p>
+        <a class="btn btn-ghost" href="https://wa.me/77076585662?text=Здравствуйте!%20Хочу%20стать%20партнёром%20—%20дать%20клиентам%20сертификат%2010%20000%20%E2%82%B8.%20Расскажите%20условия." target="_blank" rel="noopener">Написать по партнёрству</a>
       </div>
     </div>
   </div>
@@ -876,9 +878,9 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       <details class="q"><summary>Чем отличается от лазера и можно ли делать после лазера?</summary><div class="a">Лазер и фотоэпиляция воздействуют на пигмент волоса и наиболее эффективны на тёмных волосах и светлой коже; на светлых, седых и рыжих волосах они малоэффективны. Электроэпиляция разрушает зону роста фолликула независимо от цвета волоса, поэтому логично «доделывает» остаточные светлые и тонкие волоски после лазерного курса. После последнего сеанса лазерной эпиляции рекомендуется выдержать паузу не менее месяца. Это необходимо, чтобы волосы вышли на поверхность кожи и можно было эффективно их обработать.</div></details>
       <details class="q"><summary>Безопасно ли это? Как со стерильностью?</summary><div class="a">Это один из наиболее изученных методов удаления волос. Мы работаем только одноразовыми стерильными иглами — упаковка вскрывается при вас, а игла утилизируется после процедуры; многоразовый инструмент проходит полную стерилизацию, кабинет обрабатывается после каждого клиента. После процедуры возможно лёгкое покраснение и небольшая отёчность — это нормальная реакция кожи, которая проходит самостоятельно; в процессе заживления могут появиться небольшие защитные корочки — их не нужно удалять, они сходят сами без следов. Противопоказания обсуждаем до начала.</div></details>
       <details class="q"><summary>Сколько это стоит?</summary><div class="a">Стоимость рассчитывается поминутно — вы оплачиваете только фактически выполненную работу.<br><br><b>Например:</b><br>Лицо: 35 минут × 400 ₸ = <b>14 000 ₸</b><br>Бикини: 126 минут × 400 ₸ = <b>50 400 ₸</b><br><br>Такой формат позволяет платить именно за объём работы, а не за фиксированную стоимость зоны.<br><br>На сайте вы можете посмотреть ориентировочное время для разных зон и воспользоваться калькулятором. На бесплатной консультации я оценю ваш случай, сориентирую по количеству времени и назову примерную стоимость курса.<br><br>Если вам важно уложиться в определённый бюджет, просто сообщите об этом заранее — рассчитаем, сколько минут можно работать, и остановим процедуру на согласованной сумме.<br><br>Минимальная продолжительность оплачиваемого приёма — <b>30 минут (12 000 ₸)</b>.</div></details>
-      <details class="q"><summary>У меня нет кода компании — что мне доступно?</summary><div class="a">Всё то же самое: те же 400 ₸ за минуту, те же абонементы с подарочными минутами и та же бесплатная консультация. Корпоративный сертификат — отдельная договорённость с работодателями, а не уровень доступа к процедуре. Хотите, чтобы такая программа появилась и у вашей компании, — напишите мне, обсудим условия.</div></details>
-      <details class="q"><summary>Где взять код компании?</summary><div class="a">У руководителя или HR вашей компании, либо у администратора салона-партнёра — код рассылают сотрудникам. Выглядит он так: EPILA-НАЗВАНИЕ. Код — это заявка на сертификат, а не сам сертификат: я проверяю его лично и подтверждаю в переписке.</div></details>
-      <details class="q"><summary>Сертификат действует на Start и Plus?</summary><div class="a">Нет, только на абонементы на 5 и 10 часов. В Start и Plus подарочные минуты уже включены в цену. Сертификат действует 3 месяца со дня выдачи, суммируется с выгодой абонемента, но не с другими акциями.</div></details>
+      <details class="q"><summary>У меня нет кода партнёра — что мне доступно?</summary><div class="a">Всё то же самое: те же 400 ₸ за минуту, те же абонементы на 5 и 10 часов и та же бесплатная консультация. Сертификат — отдельная договорённость со студиями-партнёрами, а не уровень доступа к процедуре. Хотите, чтобы такая программа появилась и у вашей студии, — напишите мне, обсудим условия.</div></details>
+      <details class="q"><summary>Где взять код партнёра?</summary><div class="a">У студии-партнёра, где вы занимаетесь, — код передают клиентам. Выглядит он так: EPILA-НАЗВАНИЕ. Код — это заявка на сертификат, а не сам сертификат: я проверяю его лично и подтверждаю в переписке.</div></details>
+      <details class="q"><summary>На что действует сертификат?</summary><div class="a">На абонементы Start и Plus — это доступный вход в курс по коду партнёра. Сертификат действует 3 месяца со дня выдачи, один на человека, не суммируется с другими акциями.</div></details>
     </div>
   </div>
 </section>
@@ -930,7 +932,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       </div>
       <div class="foot-cols">
         <div class="foot-col"><h5>Разделы</h5>
-          <a href="#for-whom">Кому подходит</a><a href="#method">Метод</a><a href="#compare">Сравнение</a><a href="#pricing">Цены</a><a href="#faq">Вопросы</a>
+          <a href="#for-whom">Кому подходит</a><a href="#method">Метод</a><a href="#compare">Сравнение</a><a href="#pricing">Цены</a><a href="#promo">Партнёрам</a><a href="#faq">Вопросы</a>
         </div>
         <div class="foot-col"><h5>Услуги</h5>
           <a href="#for-whom">Лицо · губа · подбородок</a><a href="#for-whom">Седые и светлые волосы</a><a href="#for-whom">После лазера</a><a href="#for-whom">СПКЯ / гирсутизм</a>
@@ -999,7 +1001,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
 
   /* mobile nav */
   var burger=doc.getElementById('burger'), menu=null;
-  var links=[['#for-whom','Кому подходит'],['#method','Метод'],['#compare','Сравнение'],['#pricing','Цены'],['#faq','Вопросы'],['#booking','Записаться']];
+  var links=[['#for-whom','Кому подходит'],['#method','Метод'],['#compare','Сравнение'],['#pricing','Цены'],['#promo','Партнёрам'],['#faq','Вопросы'],['#booking','Записаться']];
   burger.addEventListener('click', function(){
     var open=burger.classList.toggle('open');
     burger.setAttribute('aria-expanded', open);
@@ -1100,7 +1102,7 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
     addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) closeLb(); });
   }
 
-  /* корпоративный сертификат — страница НЕ проверяет код по списку и ничего не выдаёт:
+  /* партнёрский сертификат — страница НЕ проверяет код по списку и ничего не выдаёт:
      она собирает заявку и передаёт её мастеру, право на сертификат подтверждает мастер лично.
      Списка партнёров в этом файле нет и быть не должно — репозиторий публичный. */
   var pForm=doc.getElementById('promoForm');
@@ -1122,14 +1124,14 @@ footer{background:#1E201C; color:rgba(255,255,255,.7); padding-block:56px 30px; 
       var oc=(pOrg.value||'').replace(/\s+/g,'').toUpperCase();
       var nm=(pName.value||'').trim(), ph=(pPhone.value||'').trim();
       /* проверяем ТОЛЬКО формат: существует код или нет — знает мастер, не страница */
-      if(!/^[A-Z0-9-]{3,20}$/.test(oc)){ return fail('Проверьте код компании — его выдаёт ваш работодатель.', pOrg); }
+      if(!/^[A-Z0-9-]{3,20}$/.test(oc)){ return fail('Проверьте код партнёра — его выдаёт студия-партнёр.', pOrg); }
       if(nm.length<2){ return fail('Пожалуйста, укажите имя.', pName); }
       if(digits(ph).length<10){ return fail('Проверьте номер — нужен полный телефон с кодом.', pPhone); }
       if(pGreet){ pGreet.textContent=nm; }
       if(pRecapCode){ pRecapCode.textContent=oc; }
       if(pRecapPhone){ pRecapPhone.textContent=ph; }
-      var msg='Здравствуйте! Заявка на корпоративный сертификат 10 000 ₸.'
-            +'\nКод компании: '+oc
+      var msg='Здравствуйте! Заявка на сертификат 10 000 ₸ по коду партнёра.'
+            +'\nКод партнёра: '+oc
             +'\nИмя: '+nm
             +'\nТелефон: '+ph;
       pSend.href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
